@@ -13,7 +13,12 @@ namespace WeQuestion.Web
 
             bundles.Add(new StyleBundle("~/bundles/app")
             .Include(
-                "~/Scripts/libs/modernizr-2.6.2.js"
+                "~/Scripts/app/app.module.js",
+                "~/Scripts/app/app.config.js",
+                "~/Scripts/app/admin/admin.overview.controller.js",
+                "~/Scripts/app/admin/admin.overview.state.js",
+                "~/Scripts/app/admin/admin.entry.controller.js",
+                "~/Scripts/app/admin/admin.entry.state.js"
             ));
         }
     }

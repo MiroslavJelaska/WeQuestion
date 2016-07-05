@@ -121,9 +121,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Content\" />
-    <Folder Include="Scripts\app\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -140,6 +138,14 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\app\admin\admin.entry.controller.js" />
+    <Content Include="Scripts\app\admin\admin.entry.state.js" />
+    <Content Include="Scripts\app\admin\admin.overview.state.js" />
+    <Content Include="Scripts\app\admin\admin.entry.template.html" />
+    <Content Include="Scripts\app\admin\admin.overview.template.html" />
+    <Content Include="Scripts\app\admin\admin.overview.controller.js" />
+    <Content Include="Scripts\app\app.config.js" />
+    <Content Include="Scripts\app\app.module.js" />
     <Content Include="Scripts\libs\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
