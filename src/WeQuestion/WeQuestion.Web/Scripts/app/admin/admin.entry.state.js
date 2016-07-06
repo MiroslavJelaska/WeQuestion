@@ -5,7 +5,6 @@
 
     AdminEntryStateConfig.$inject = ['$stateProvider'];
     function AdminEntryStateConfig($stateProvider) {
-        console.log(2);
         $stateProvider
         .state('entry', {
             url: '/admin/entry',

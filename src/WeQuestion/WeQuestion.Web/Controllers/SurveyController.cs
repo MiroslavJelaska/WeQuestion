@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using WeQuestion.Domain.Dto;
+using WeQuestion.Data.Entities;
 using WeQuestion.Domain.Repository;
+using Survey = WeQuestion.Domain.Dto.Survey;
 
 namespace WeQuestion.Web.Controllers
 {
@@ -10,9 +11,9 @@ namespace WeQuestion.Web.Controllers
     {
         [HttpGet]
         [Route("")]
-        public IEnumerable<Poll> All()
+        public IEnumerable<Survey> All(SurvayState? state)
         {
-            return new GetAllPolls().Get();
+            return new GetAllSurveys().Execute(state);
         }
     }
 }

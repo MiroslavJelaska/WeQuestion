@@ -5,7 +5,7 @@
 
     AppConfig.$inject = ['$urlRouterProvider', '$locationProvider'];
     function AppConfig($urlRouterProvider, $locationProvider) {
-        $urlRouterProvider.otherwise('/admin/overview');
+        $urlRouterProvider.otherwise('/admin/provisional');
         $locationProvider.html5Mode(true);
     }
 })();

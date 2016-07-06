@@ -8,7 +8,8 @@ namespace WeQuestion.Web
         {
             bundles.Add(new StyleBundle("~/bundles/libs")
             .Include(
-                "~/Scripts/libs/modernizr-2.6.2.js"
+                "~/Scripts/libs/modernizr-2.6.2.js",
+                "~/Scripts/libs/js-enumeration-v.0.2.3.js"
             ));
 
             bundles.Add(new StyleBundle("~/bundles/app")
@@ -16,10 +17,12 @@ namespace WeQuestion.Web
                 "~/Scripts/app/app.module.js",
                 "~/Scripts/app/app.config.js",
 
+                "~/Scripts/app/common/constants/surveyState.js",
+
                 "~/Scripts/app/common/services/surveyService.js",
 
-                "~/Scripts/app/admin/admin.overview.controller.js",
-                "~/Scripts/app/admin/admin.overview.state.js",
+                "~/Scripts/app/admin/admin.provisional.controller.js",
+                "~/Scripts/app/admin/admin.provisional.state.js",
                 "~/Scripts/app/admin/admin.entry.controller.js",
                 "~/Scripts/app/admin/admin.entry.state.js"
             ));

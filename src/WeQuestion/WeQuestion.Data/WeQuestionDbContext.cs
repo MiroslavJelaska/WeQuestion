@@ -38,22 +38,19 @@ namespace WeQuestion.Data
                     new Survey()
                     {
                         AccessToken = "CarTreePc",
-                        IsOpen = false,
-                        IsPublished = false,
+                        State = SurvayState.Provisional,
                         Title = "Test poll"
                     },
                     new Survey()
                     {
                         AccessToken = "GlassBirdSwitch",
-                        IsOpen = true,
-                        IsPublished = false,
+                        State = SurvayState.Open,
                         Title = "Test poll #2"
                     },
                     new Survey()
                     {
                         AccessToken = "GlassBirdSwitch",
-                        IsOpen = true,
-                        IsPublished = false,
+                        State = SurvayState.Closed,
                         Title = "Test poll #3"
                     }
                 }.ToList().ForEach(newPoll => context.Polls.Add(newPoll));

@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\SurvayState.cs" />
     <Compile Include="Entities\UsersAnswer.cs" />
     <Compile Include="Entities\AnswerOption.cs" />
     <Compile Include="Entities\Survey.cs" />
