@@ -15,6 +15,9 @@ namespace WeQuestion.Web
             .Include(
                 "~/Scripts/app/app.module.js",
                 "~/Scripts/app/app.config.js",
+
+                "~/Scripts/app/common/services/surveyService.js",
+
                 "~/Scripts/app/admin/admin.overview.controller.js",
                 "~/Scripts/app/admin/admin.overview.state.js",
                 "~/Scripts/app/admin/admin.entry.controller.js",

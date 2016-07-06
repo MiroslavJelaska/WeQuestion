@@ -1,17 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using WeQuestion.Data;
-using WeQuestion.Data.Entities;
+using dto = WeQuestion.Domain.Dto;
 
 namespace WeQuestion.Domain.Repository
 {
     public class GetAllPolls
     {
-        public IReadOnlyCollection<Poll> Get()
+        public IReadOnlyCollection<dto::Poll> Get()
         {
             using (var dbContext = new WeQuestionDbContext())
             {
-                return dbContext.Polls.ToList().Select(x => new Poll() {Title = x.Title, Id = x.Id}).ToList();
+                return 
+                    dbContext.Polls.ToList().Select(x => new dto::Poll() {Id = x.Id, Text = x.Title }).ToList();
             }
         }
     }

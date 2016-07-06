@@ -52,8 +52,8 @@
   <ItemGroup>
     <Compile Include="Entities\UsersAnswer.cs" />
     <Compile Include="Entities\AnswerOption.cs" />
-    <Compile Include="Entities\Poll.cs" />
-    <Compile Include="Entities\PollParticipation.cs" />
+    <Compile Include="Entities\Survey.cs" />
+    <Compile Include="Entities\SurveyParticipation.cs" />
     <Compile Include="Entities\ProvisionalUser.cs" />
     <Compile Include="Entities\Question.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

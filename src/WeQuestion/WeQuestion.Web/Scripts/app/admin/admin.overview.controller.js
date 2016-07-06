@@ -3,11 +3,14 @@
 
     angular.module('app').controller('adminOverviewController', AdminOverviewController);
 
-    AdminOverviewController.$inject = ['$state'];
-    function AdminOverviewController($state) {
-        console.log(56)
+    AdminOverviewController.$inject = ['$state', 'surveyService'];
+    function AdminOverviewController($state, surveyService) {
         var vm = this;
 
-        vm.Something = 'hoho';
+        surveyService.getAll()
+        .then(function (allsurveys) {
+            vm.surveys = allsurveys;
+            console.log(vm.surveys);
+        });
     }
 })();

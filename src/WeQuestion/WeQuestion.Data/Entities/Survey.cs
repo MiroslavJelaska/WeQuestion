@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WeQuestion.Data.Entities
 {
-    public class Poll
+    public class Survey
     {
         [Key]
         public int Id { get; set; }

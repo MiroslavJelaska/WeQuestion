@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Linq;
 using WeQuestion.Data.Entities;
 
 namespace WeQuestion.Data
@@ -13,14 +14,14 @@ namespace WeQuestion.Data
         }
 
         public IDbSet<ProvisionalUser> ProvisionalUsers { get; set; }
-        public IDbSet<PollParticipation> PollParticipations { get; set; }
+        public IDbSet<SurveyParticipation> PollParticipations { get; set; }
         public IDbSet<UsersAnswer> UsersAnswers { get; set; }
-        public IDbSet<Poll> Polls { get; set; }
+        public IDbSet<Survey> Polls { get; set; }
         public IDbSet<Question> Questions { get; set; }
         public IDbSet<AnswerOption> AnswerOptions { get; set; }
 
 
-        public class DevelopmentDatabaseInitializer : DropCreateDatabaseIfModelChanges<WeQuestionDbContext>
+        public class DevelopmentDatabaseInitializer : DropCreateDatabaseAlways<WeQuestionDbContext>
         {
             public override void InitializeDatabase(WeQuestionDbContext context)
             {
@@ -32,14 +33,30 @@ namespace WeQuestion.Data
 
             protected override void Seed(WeQuestionDbContext context)
             {
-                var newPoll = new Poll()
+                new[]
                 {
-                    AccessToken = "CarTreePc",
-                    IsOpen = false,
-                    IsPublished = false,
-                    Title = "Test poll"
-                };
-                context.Polls.Add(newPoll);
+                    new Survey()
+                    {
+                        AccessToken = "CarTreePc",
+                        IsOpen = false,
+                        IsPublished = false,
+                        Title = "Test poll"
+                    },
+                    new Survey()
+                    {
+                        AccessToken = "GlassBirdSwitch",
+                        IsOpen = true,
+                        IsPublished = false,
+                        Title = "Test poll #2"
+                    },
+                    new Survey()
+                    {
+                        AccessToken = "GlassBirdSwitch",
+                        IsOpen = true,
+                        IsPublished = false,
+                        Title = "Test poll #3"
+                    }
+                }.ToList().ForEach(newPoll => context.Polls.Add(newPoll));
 
                 context.SaveChanges();
             }

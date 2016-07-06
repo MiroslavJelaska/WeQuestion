@@ -129,7 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\SurveyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -146,6 +146,7 @@
     <Content Include="Scripts\app\admin\admin.overview.controller.js" />
     <Content Include="Scripts\app\app.config.js" />
     <Content Include="Scripts\app\app.module.js" />
+    <Content Include="Scripts\app\common\services\surveyService.js" />
     <Content Include="Scripts\libs\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -159,6 +160,10 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WeQuestion.Data\WeQuestion.Data.csproj">
+      <Project>{862CEA4C-39F3-4ECE-A95F-A3683310DACB}</Project>
+      <Name>WeQuestion.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WeQuestion.Domain\WeQuestion.Domain.csproj">
       <Project>{be7644a1-2c70-4786-933a-31c29011c481}</Project>
       <Name>WeQuestion.Domain</Name>

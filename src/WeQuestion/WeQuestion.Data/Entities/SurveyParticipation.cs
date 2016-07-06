@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WeQuestion.Data.Entities
 {
-    public class PollParticipation
+    public class SurveyParticipation
     {
         [Key]
         public int Id { get; set; }
@@ -14,7 +14,7 @@ namespace WeQuestion.Data.Entities
 
         public virtual ICollection<UsersAnswer> UsersAnswers { get; set; }
 
-        public virtual Poll Poll { get; set; }
+        public virtual Survey Survey { get; set; }
 
         public virtual ProvisionalUser ProvisionalUser { get; set; }
     }

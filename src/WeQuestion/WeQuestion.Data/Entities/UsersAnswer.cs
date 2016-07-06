@@ -11,6 +11,6 @@ namespace WeQuestion.Data.Entities
 
         public virtual Question Question { get; set; }
 
-        public virtual PollParticipation PollParticipation { get; set; }
+        public virtual SurveyParticipation SurveyParticipation { get; set; }
     }
 }
