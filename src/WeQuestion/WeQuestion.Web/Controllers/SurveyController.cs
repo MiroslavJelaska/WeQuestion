@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 using WeQuestion.Data.Entities;
-using WeQuestion.Domain.Repository;
-using Survey = WeQuestion.Domain.Dto.Survey;
+using WeQuestion.Domain.Queries;
+using dto = WeQuestion.Domain.Dto;
 
 namespace WeQuestion.Web.Controllers
 {
@@ -11,7 +11,7 @@ namespace WeQuestion.Web.Controllers
     {
         [HttpGet]
         [Route("")]
-        public IEnumerable<Survey> All(SurvayState? state)
+        public IEnumerable<dto::Survey.ShortDetails> All(SurvayState? state)
         {
             return new GetAllSurveys().Execute(state);
         }

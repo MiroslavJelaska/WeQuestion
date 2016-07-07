@@ -22,14 +22,14 @@ namespace WeQuestion.Web
                 "~/Scripts/app/common/services/surveyService.js",
 
                 "~/Scripts/app/admin/admin.state.js",
-                "~/Scripts/app/admin/admin.provisional.controller.js",
-                "~/Scripts/app/admin/admin.provisional.state.js",
-                "~/Scripts/app/admin/admin.open.controller.js",
-                "~/Scripts/app/admin/admin.open.state.js",
-                "~/Scripts/app/admin/admin.closed.controller.js",
-                "~/Scripts/app/admin/admin.closed.state.js",
                 "~/Scripts/app/admin/admin.create.controller.js",
-                "~/Scripts/app/admin/admin.create.state.js"
+                "~/Scripts/app/admin/admin.create.state.js",
+                "~/Scripts/app/admin/admin.edit.controller.js",
+                "~/Scripts/app/admin/admin.edit.state.js",
+                "~/Scripts/app/admin/admin.statePanel.controller.js",
+                "~/Scripts/app/admin/admin.stateOpen.state.js",
+                "~/Scripts/app/admin/admin.stateClosed.state.js",
+                "~/Scripts/app/admin/admin.stateProvisional.state.js"
             ));
         }
     }

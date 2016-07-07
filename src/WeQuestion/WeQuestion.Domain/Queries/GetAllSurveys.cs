@@ -22,9 +22,20 @@ namespace WeQuestion.Domain.Queries
                     dbContext.Polls
                     .Where(stateFilter)
                     .ToList()
-                    .Select(x => new dto::Survey.ShortDetails() {Id = x.Id, Title = x.Title, AccessToken = x.AccessToken, ClosingTimestamp = x.ClosingTimestamp })
+                    .Select(_mapper)
                     .ToList();
             }
+        }
+
+        private dto::Survey.ShortDetails _mapper(Data.Entities.Survey survey)
+        {
+            return new dto::Survey.ShortDetails()
+            {
+                Id = survey.Id,
+                Title = survey.Title,
+                AccessToken = survey.AccessToken,
+                ClosingTimestamp = survey.ClosingTimestamp
+            };
         }
     }
 }

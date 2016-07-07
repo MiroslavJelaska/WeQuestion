@@ -138,19 +138,18 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\app\admin\admin.closed.controller.js" />
+    <Content Include="Scripts\app\admin\admin.edit.controller.js" />
     <Content Include="Scripts\app\admin\admin.create.controller.js" />
-    <Content Include="Scripts\app\admin\admin.closed.state.js" />
+    <Content Include="Scripts\app\admin\admin.edit.state.js" />
+    <Content Include="Scripts\app\admin\admin.edit.template.html" />
+    <Content Include="Scripts\app\admin\admin.stateClosed.state.js" />
     <Content Include="Scripts\app\admin\admin.create.state.js" />
-    <Content Include="Scripts\app\admin\admin.closed.template.html" />
-    <Content Include="Scripts\app\admin\admin.open.controller.js" />
     <Content Include="Scripts\app\admin\admin.state.js" />
-    <Content Include="Scripts\app\admin\admin.open.state.js" />
-    <Content Include="Scripts\app\admin\admin.provisional.state.js" />
+    <Content Include="Scripts\app\admin\admin.stateOpen.state.js" />
+    <Content Include="Scripts\app\admin\admin.stateProvisional.state.js" />
     <Content Include="Scripts\app\admin\admin.create.template.html" />
-    <Content Include="Scripts\app\admin\admin.open.template.html" />
-    <Content Include="Scripts\app\admin\admin.provisional.template.html" />
-    <Content Include="Scripts\app\admin\admin.provisional.controller.js" />
+    <Content Include="Scripts\app\admin\admin.statePanel.template.html" />
+    <Content Include="Scripts\app\admin\admin.statePanel.controller.js" />
     <Content Include="Scripts\app\app.config.js" />
     <Content Include="Scripts\app\app.module.js" />
     <Content Include="Scripts\app\common\constants\surveyState.js" />

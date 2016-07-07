@@ -9,7 +9,7 @@
         .state('admin', {
             url: '/admin',
             abstract: true,
-            template: '<ui-view/>'
+            template: '<div ui-view></div>'
         });
     }
 })();
