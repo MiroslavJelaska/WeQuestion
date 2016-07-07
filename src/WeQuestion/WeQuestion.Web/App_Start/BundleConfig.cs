@@ -24,8 +24,10 @@ namespace WeQuestion.Web
                 "~/Scripts/app/admin/admin.state.js",
                 "~/Scripts/app/admin/admin.provisional.controller.js",
                 "~/Scripts/app/admin/admin.provisional.state.js",
-                 "~/Scripts/app/admin/admin.open.controller.js",
+                "~/Scripts/app/admin/admin.open.controller.js",
                 "~/Scripts/app/admin/admin.open.state.js",
+                "~/Scripts/app/admin/admin.closed.controller.js",
+                "~/Scripts/app/admin/admin.closed.state.js",
                 "~/Scripts/app/admin/admin.entry.controller.js",
                 "~/Scripts/app/admin/admin.entry.state.js"
             ));
