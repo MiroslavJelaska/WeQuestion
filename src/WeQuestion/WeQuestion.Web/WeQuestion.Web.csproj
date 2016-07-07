@@ -140,8 +140,12 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\admin\admin.entry.controller.js" />
     <Content Include="Scripts\app\admin\admin.entry.state.js" />
+    <Content Include="Scripts\app\admin\admin.open.controller.js" />
+    <Content Include="Scripts\app\admin\admin.state.js" />
+    <Content Include="Scripts\app\admin\admin.open.state.js" />
     <Content Include="Scripts\app\admin\admin.provisional.state.js" />
     <Content Include="Scripts\app\admin\admin.entry.template.html" />
+    <Content Include="Scripts\app\admin\admin.open.template.html" />
     <Content Include="Scripts\app\admin\admin.provisional.template.html" />
     <Content Include="Scripts\app\admin\admin.provisional.controller.js" />
     <Content Include="Scripts\app\app.config.js" />

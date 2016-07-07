@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('app').controller('adminOverviewController', Admin_ProvisionalController);
+    angular.module('app').controller('adminProvisionalController', Admin_ProvisionalController);
 
     Admin_ProvisionalController.$inject =['$state', 'surveyService', 'surveyState'];
     function Admin_ProvisionalController($state, surveyService, surveyState) {

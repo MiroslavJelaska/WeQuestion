@@ -6,13 +6,13 @@
     Admin_ProvisionalStateConfig.$inject = ['$stateProvider'];
     function Admin_ProvisionalStateConfig($stateProvider) {
         $stateProvider
-        .state('provisional', {
-            url: '/admin/provisional',
+        .state('admin.provisional', {
+            url: '/provisional',
             data: {
                 stateTitle: 'Pregled'
             },
             templateUrl: '/Scripts/app/admin/admin.provisional.template.html',
-            controller: 'adminOverviewController',
+            controller: 'adminProvisionalController',
             controllerAs: 'vm'
         });
     }
