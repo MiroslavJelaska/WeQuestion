@@ -6,7 +6,5 @@
     adminEditController.$inject = ['$state'];
     function adminEditController($state) {
         var vm = this;
-
-        vm.Something = 'Stvori novi';
     }
 })();

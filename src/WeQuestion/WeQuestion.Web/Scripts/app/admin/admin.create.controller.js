@@ -7,6 +7,12 @@
     function adminCreateController($state) {
         var vm = this;
 
-        vm.Something = 'Stvori novi';
+        vm.action = {
+            submit: submit
+        };
+
+        function submit() {
+            console.log(vm.newSurvey);
+        }
     }
 })();

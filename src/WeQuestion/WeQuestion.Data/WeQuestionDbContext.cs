@@ -14,9 +14,9 @@ namespace WeQuestion.Data
         }
 
         public IDbSet<ProvisionalUser> ProvisionalUsers { get; set; }
-        public IDbSet<SurveyParticipation> PollParticipations { get; set; }
+        public IDbSet<SurveyParticipation> SurveyParticipations { get; set; }
         public IDbSet<UsersAnswer> UsersAnswers { get; set; }
-        public IDbSet<Survey> Polls { get; set; }
+        public IDbSet<Survey> Surveys { get; set; }
         public IDbSet<Question> Questions { get; set; }
         public IDbSet<AnswerOption> AnswerOptions { get; set; }
 
@@ -53,7 +53,7 @@ namespace WeQuestion.Data
                         State = SurvayState.Closed,
                         Title = "Test poll #3"
                     }
-                }.ToList().ForEach(newPoll => context.Polls.Add(newPoll));
+                }.ToList().ForEach(newPoll => context.Surveys.Add(newPoll));
 
                 context.SaveChanges();
             }

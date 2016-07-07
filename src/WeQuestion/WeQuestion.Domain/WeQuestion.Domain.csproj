@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CreateSurvay.cs" />
+    <Compile Include="Dto\Survey\Create.cs" />
     <Compile Include="Dto\Survey\ShortDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\GetAllSurveys.cs" />
