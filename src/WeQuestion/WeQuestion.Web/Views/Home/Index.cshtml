@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width" />
     <title>WeQuestion</title>
     <base href="/">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <style>
+        .menu-option { display: inline-block; list-style: none;text-decoration: none; color: #2A2C2B }
+    </style>
 </head>
 <body>
-    <ul>
-        <li><a ui-sref="admin.provisional">Provisional</a></li>
-        <li><a ui-sref="admin.open">Open</a></li>
-        <li><a ui-sref="admin.closed">Closed</a></li>
-        <li><a ui-sref="entry">Pregled upitnika</a></li>
+    <ul class="menu">
+        <li class="menu-option"><a ui-sref="admin.provisional">Provisional</a></li>
+        <li class="menu-option"><a ui-sref="admin.open">Open</a></li>
+        <li class="menu-option"><a ui-sref="admin.closed">Closed</a></li>
+        <li class="menu-option"><a ui-sref="admin.create">Create</a></li>
     </ul>
 
     <div ui-view></div>

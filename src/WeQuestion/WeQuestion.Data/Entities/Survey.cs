@@ -14,7 +14,7 @@ namespace WeQuestion.Data.Entities
 
         public SurvayState State { get; set; }
 
-        public DateTimeOffset ClosingTimestamp { get; set; }
+        public DateTimeOffset? ClosingTimestamp { get; set; }
 
         public string AccessToken { get; set; }
 

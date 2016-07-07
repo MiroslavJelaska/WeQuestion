@@ -28,8 +28,8 @@ namespace WeQuestion.Web
                 "~/Scripts/app/admin/admin.open.state.js",
                 "~/Scripts/app/admin/admin.closed.controller.js",
                 "~/Scripts/app/admin/admin.closed.state.js",
-                "~/Scripts/app/admin/admin.entry.controller.js",
-                "~/Scripts/app/admin/admin.entry.state.js"
+                "~/Scripts/app/admin/admin.create.controller.js",
+                "~/Scripts/app/admin/admin.create.state.js"
             ));
         }
     }

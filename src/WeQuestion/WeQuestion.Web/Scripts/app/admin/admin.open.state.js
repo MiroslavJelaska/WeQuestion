@@ -11,7 +11,7 @@
             data: {
                 stateTitle: 'Pregled'
             },
-            templateUrl: '/Scripts/app/admin/admin.provisional.template.html',
+            templateUrl: '/Scripts/app/admin/admin.open.template.html',
             controller: 'adminOpenController',
             controllerAs: 'vm'
         });

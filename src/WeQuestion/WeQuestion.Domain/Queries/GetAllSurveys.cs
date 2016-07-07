@@ -6,11 +6,11 @@ using WeQuestion.Data;
 using WeQuestion.Data.Entities;
 using dto = WeQuestion.Domain.Dto;
 
-namespace WeQuestion.Domain.Repository
+namespace WeQuestion.Domain.Queries
 {
     public class GetAllSurveys
     {
-        public IReadOnlyCollection<dto::Survey> Execute(SurvayState? state = null)
+        public IReadOnlyCollection<dto::Survey.ShortDetails> Execute(SurvayState? state = null)
         {
             Expression<Func<Survey, bool>> filterByState =survey => survey.State == state.Value;
             Expression<Func<Survey, bool>> ignoreStateFilter = survey => true;
@@ -22,7 +22,7 @@ namespace WeQuestion.Domain.Repository
                     dbContext.Polls
                     .Where(stateFilter)
                     .ToList()
-                    .Select(x => new dto::Survey() {Id = x.Id, Text = x.Title })
+                    .Select(x => new dto::Survey.ShortDetails() {Id = x.Id, Title = x.Title, AccessToken = x.AccessToken, ClosingTimestamp = x.ClosingTimestamp })
                     .ToList();
             }
         }
