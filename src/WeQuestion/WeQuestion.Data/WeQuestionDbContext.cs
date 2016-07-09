@@ -6,8 +6,8 @@ namespace WeQuestion.Data
 {
     public class WeQuestionDbContext : DbContext
     {
-        public WeQuestionDbContext()
-            : base(@"Data Source=(LocalDB)\MSSQLLocalDB; Initial Catalog=WeQuestion; Integrated Security = True; MultipleActiveResultSets=True")
+        public WeQuestionDbContext(string connectionString)
+            : base(connectionString)
         {
             var initializer = new DevelopmentDatabaseInitializer();
             Database.SetInitializer(initializer);

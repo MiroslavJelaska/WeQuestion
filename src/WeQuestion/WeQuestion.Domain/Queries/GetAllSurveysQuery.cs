@@ -9,9 +9,9 @@ using data = WeQuestion.Data.Entities;
 
 namespace WeQuestion.Domain.Queries
 {
-    public class GetAllSurveys
+    public class GetAllSurveysQuery
     {
-        public GetAllSurveys(WeQuestionDbContext dbContext)
+        public GetAllSurveysQuery(WeQuestionDbContext dbContext)
         {
             _dbContext = dbContext;
         }
