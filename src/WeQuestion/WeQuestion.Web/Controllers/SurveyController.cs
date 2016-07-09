@@ -12,13 +12,16 @@ namespace WeQuestion.Web.Controllers
     {
         public SurveyController(
             GetAllSurveysQuery getAllSurveysQuery,
+            GetSurveyQuery getSurveyQuery,
             CreateSurvayCommand createSurvayCommand)
         {
             _getAllSurveysQuery = getAllSurveysQuery;
+            _getSurveysQuery = getSurveyQuery;
             _createSurvayCommand = createSurvayCommand;
         }
 
         private readonly GetAllSurveysQuery _getAllSurveysQuery;
+        private readonly GetSurveyQuery _getSurveysQuery;
         private readonly CreateSurvayCommand _createSurvayCommand;
 
         [HttpGet]
@@ -26,6 +29,13 @@ namespace WeQuestion.Web.Controllers
         public IEnumerable<dto::Survey.ShortDetails> All(SurvayState? state)
         {
             return _getAllSurveysQuery.Execute(state);
+        }
+
+        [HttpGet]
+        [Route("{id:int}")]
+        public dto::Survey.ShortDetails Get(int id)
+        {
+            return _getSurveysQuery.Execute(id);
         }
 
         [HttpPost]

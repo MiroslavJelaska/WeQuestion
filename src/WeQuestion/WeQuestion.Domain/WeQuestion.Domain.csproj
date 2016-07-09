@@ -54,6 +54,7 @@
     <Compile Include="Dto\Survey\ShortDetails.cs" />
     <Compile Include="Mappers\SurveyMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\GetSurveyQuery.cs" />
     <Compile Include="Queries\GetAllSurveysQuery.cs" />
   </ItemGroup>
   <ItemGroup>

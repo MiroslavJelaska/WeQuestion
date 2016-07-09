@@ -8,10 +8,9 @@
         </tr>
         </thead>
         <tbody ng-repeat="survey in vm.surveys">
-        <tr>
+        <tr class="survey-list-item" ui-sref="admin.survey({ id: survey.id })">
             <td>{{$index + 1}}</td>
             <td>{{survey.title}}</td>
-            <td><button ui-sref="admin.edit({ id: survey.id })">Edit</button></td>
         </tr>
         </tbody>
     </table>

@@ -159,10 +159,10 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\app\admin\admin.edit.controller.js" />
+    <Content Include="Scripts\app\admin\admin.survey.controller.js" />
     <Content Include="Scripts\app\admin\admin.create.controller.js" />
-    <Content Include="Scripts\app\admin\admin.edit.state.js" />
-    <Content Include="Scripts\app\admin\admin.edit.template.html" />
+    <Content Include="Scripts\app\admin\admin.survey.state.js" />
+    <Content Include="Scripts\app\admin\admin.survey.template.html" />
     <Content Include="Scripts\app\admin\admin.stateClosed.state.js" />
     <Content Include="Scripts\app\admin\admin.create.state.js" />
     <Content Include="Scripts\app\admin\admin.state.js" />

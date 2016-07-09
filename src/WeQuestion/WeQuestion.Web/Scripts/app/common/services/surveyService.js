@@ -3,13 +3,10 @@
 
     angular.module('app').factory('surveyService', surveyService);
 
-    surveyService.$inject = ['$q', '$http', 'surveyState'];
-    function surveyService($q, $http, surveyState)
+    surveyService.$inject = ['$q', '$http'];
+    function surveyService($q, $http)
     {
         const baseUri = 'api/surveys';
-        const routes = {
-            getAll: baseUri
-        }
 
         function getAll(state) {
             const config = {
@@ -19,19 +16,26 @@
             };
 
             return $http
-            .get(routes.getAll, config)
+            .get(baseUri, config)
+            .then(result => result.data);
+        }
+
+        function get(id) {
+            return $http
+            .get(baseUri + '/' + id)
             .then(result => result.data);
         }
 
         function create(newSurvey) {
             return $http
-            .post(routes.getAll, newSurvey)
+            .post(baseUri, newSurvey)
             .then(result => result.data);
         }
 
         return {
             getAll: getAll,
+            get:    get,
             create: create
-    }
+        }
     }
 })();
