@@ -19,17 +19,17 @@ namespace WeQuestion.Web.App_Start
 
             builder.RegisterAssemblyTypes(dataAccess)
                .Where(t => t.Name.Contains("Query"))
-               .AsImplementedInterfaces()
+               .AsSelf()
                .InstancePerRequest();
 
             builder.RegisterAssemblyTypes(dataAccess)
                 .Where(t => t.Name.EndsWith("Service"))
-                .AsImplementedInterfaces()
+                .AsSelf()
                 .InstancePerRequest();
 
             builder.RegisterAssemblyTypes(dataAccess)
                 .Where(t => t.Name.EndsWith("Command"))
-                .AsImplementedInterfaces()
+                .AsSelf()
                 .InstancePerRequest();
 
 
@@ -53,7 +53,7 @@ namespace WeQuestion.Web.App_Start
         private static void RegisterDbContext(ContainerBuilder builder)
         {
             builder.RegisterType<WeQuestionDbContext>()
-                .AsImplementedInterfaces()
+                .AsSelf()
                 .WithParameter("connectionString",
                     @"Data Source=(LocalDB)\MSSQLLocalDB; Initial Catalog=WeQuestion; Integrated Security = True; MultipleActiveResultSets=True")
                 .InstancePerRequest();
