@@ -4,8 +4,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using WeQuestion.Data;
 using WeQuestion.Data.Entities;
+using WeQuestion.Domain.Mappers;
 using dto = WeQuestion.Domain.Dto;
-using data = WeQuestion.Data.Entities;
+
 
 namespace WeQuestion.Domain.Queries
 {
@@ -28,19 +29,8 @@ namespace WeQuestion.Domain.Queries
                 _dbContext.Surveys
                 .Where(stateFilter)
                 .ToList()
-                .Select(_mapper)
+                .Select(SurveyMapper.Map)
                 .ToList();
-        }
-
-        private dto::Survey.ShortDetails _mapper(data::Survey survey)
-        {
-            return new dto::Survey.ShortDetails()
-            {
-                Id = survey.Id,
-                Title = survey.Title,
-                AccessToken = survey.AccessToken,
-                ClosingTimestamp = survey.ClosingTimestamp
-            };
         }
     }
 }

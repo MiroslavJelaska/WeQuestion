@@ -1,19 +1,20 @@
 using WeQuestion.Data;
 using WeQuestion.Data.Entities;
+using WeQuestion.Domain.Mappers;
 using dto = WeQuestion.Domain.Dto;
 
 namespace WeQuestion.Domain.Commands
 {
-    public class CreateSurvay
+    public class CreateSurvayCommand
     {
-        public CreateSurvay(WeQuestionDbContext dbContext)
+        public CreateSurvayCommand(WeQuestionDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
         private readonly WeQuestionDbContext _dbContext;
 
-        public int Execute(dto::Survey.Create newSurvay)
+        public dto::Survey.ShortDetails Execute(dto::Survey.Create newSurvay)
         {
             var surveyRecord = new Survey()
             {
@@ -21,7 +22,9 @@ namespace WeQuestion.Domain.Commands
             };
             _dbContext.Surveys.Add(surveyRecord);
 
-            return surveyRecord.Id;
+            _dbContext.SaveChanges();
+
+            return  SurveyMapper.Map(surveyRecord);
         }
     }
 }

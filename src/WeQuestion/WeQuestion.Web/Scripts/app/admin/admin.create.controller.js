@@ -3,8 +3,8 @@
 
     angular.module('app').controller('adminCreateController', adminCreateController);
 
-    adminCreateController.$inject = ['$state'];
-    function adminCreateController($state) {
+    adminCreateController.$inject = ['$state', 'surveyService'];
+    function adminCreateController($state, surveyService) {
         var vm = this;
 
         vm.action = {
@@ -13,6 +13,8 @@
 
         function submit() {
             console.log(vm.newSurvey);
+            surveyService.create(vm.newSurvey)
+            .then(x => console.log(x));
         }
     }
 })();

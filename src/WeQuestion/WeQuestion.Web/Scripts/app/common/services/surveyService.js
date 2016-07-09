@@ -22,9 +22,16 @@
             .get(routes.getAll, config)
             .then(result => result.data);
         }
-        
-        return {
-            getAll: getAll
+
+        function create(newSurvey) {
+            return $http
+            .post(routes.getAll, newSurvey)
+            .then(result => result.data);
         }
+
+        return {
+            getAll: getAll,
+            create: create
+    }
     }
 })();

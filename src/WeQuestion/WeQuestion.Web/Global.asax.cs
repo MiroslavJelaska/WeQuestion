@@ -11,7 +11,6 @@ namespace WeQuestion.Web
         protected void Application_Start()
         {
             AutofacConfig.RegisterDependencies();
-
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
