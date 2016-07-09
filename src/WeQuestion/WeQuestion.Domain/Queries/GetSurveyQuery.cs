@@ -14,10 +14,10 @@ namespace WeQuestion.Domain.Queries
 
         private readonly WeQuestionDbContext _dbContext;
 
-        public dto::Survey.ShortDetails Execute(int id)
+        public dto::Survey.LongDetails Execute(int id)
         {
             return
-                SurveyMapper.Map(
+                SurveyMapper.LongDetails.Map(
                     _dbContext.Surveys.Find(id)
                 );
         }

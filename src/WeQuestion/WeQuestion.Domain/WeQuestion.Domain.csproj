@@ -50,8 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\CreateSurvayCommand.cs" />
+    <Compile Include="Dto\Question\Details.cs" />
+    <Compile Include="Dto\Question\Create.cs" />
     <Compile Include="Dto\Survey\Create.cs" />
+    <Compile Include="Dto\Survey\LongDetails.cs" />
     <Compile Include="Dto\Survey\ShortDetails.cs" />
+    <Compile Include="Mappers\QuestionMapper.cs" />
     <Compile Include="Mappers\SurveyMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\GetSurveyQuery.cs" />

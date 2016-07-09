@@ -9,9 +9,6 @@
 
         const surveyId = $stateParams.id;
         surveyService.get(surveyId)
-        .then(survey => {
-            vm.survey = survey;
-            console.log(vm.survey);
-        });
+        .then(survey => vm.survey = survey);
     }
 })();

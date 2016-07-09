@@ -3,7 +3,11 @@
     <form>
 
         <label>Title</label>
-        <input name="" type="text" ng-model="vm.newSurvey.title"/>
+        <input type="text" ng-model="vm.newSurvey.title"/>
+
+        <div>
+            <input type="text" ng-model="vm.newSurvey.question.title"/>
+        </div>
 
         <button type="submit" ng-click="vm.action.submit()">Submit</button>
     </form>

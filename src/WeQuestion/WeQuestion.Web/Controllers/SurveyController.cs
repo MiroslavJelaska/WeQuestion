@@ -33,7 +33,7 @@ namespace WeQuestion.Web.Controllers
 
         [HttpGet]
         [Route("{id:int}")]
-        public dto::Survey.ShortDetails Get(int id)
+        public dto::Survey.LongDetails Get(int id)
         {
             return _getSurveysQuery.Execute(id);
         }

@@ -21,6 +21,8 @@ namespace WeQuestion.Web
 
                 "~/Scripts/app/common/services/surveyService.js",
 
+                "~/Scripts/app/common/directives/editSurveyQuestion.js",
+
                 "~/Scripts/app/admin/admin.state.js",
                 "~/Scripts/app/admin/admin.create.controller.js",
                 "~/Scripts/app/admin/admin.create.state.js",

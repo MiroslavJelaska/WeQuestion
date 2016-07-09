@@ -29,7 +29,7 @@ namespace WeQuestion.Domain.Queries
                 _dbContext.Surveys
                 .Where(stateFilter)
                 .ToList()
-                .Select(SurveyMapper.Map)
+                .Select(SurveyMapper.ShortDetails.Map)
                 .ToList();
         }
     }
