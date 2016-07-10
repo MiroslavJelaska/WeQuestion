@@ -8,7 +8,8 @@
         var vm = this;
 
         vm.action = {
-            submit: submit
+            submit: submit,
+            addQuestion: addQuestion
         };
 
         function submit() {
@@ -16,5 +17,18 @@
             surveyService.create(vm.newSurvey)
             .then(x => console.log(x));
         }
+
+        function addQuestion() {
+            console.log(vm.newSurvey.questions);
+            vm.newSurvey.questions.push({});
+            console.log(vm.newSurvey.questions);
+        }
+
+        (function init() {
+            vm.newSurvey =
+            {
+                questions: []
+            };
+        })();
     }
 })();

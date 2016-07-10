@@ -3,8 +3,8 @@
 
     <div>
         <span ng-if="!vm.survey.questions || !vm.survey.questions.length">Nema pitanja</span>
-        <div ng-if="vm.survey.questions && vm.survey.questions.length">
-            <p>{{vm.survey.questions[0].text}}</p>
+        <div ng-repeat="question in vm.survey.questions">
+            <p>{{question.text}}</p>
         </div>
     </div>
 

@@ -5,9 +5,12 @@
         <label>Title</label>
         <input type="text" ng-model="vm.newSurvey.title"/>
 
-        <div>
-            <input type="text" ng-model="vm.newSurvey.question.title"/>
+        <div ng-repeat="question in vm.newSurvey.questions">
+            <input type="text" ng-model="question.title"/>
         </div>
+        <br />
+        <button ng-click="vm.action.addQuestion()">+</button>
+        <br/>
 
         <button type="submit" ng-click="vm.action.submit()">Submit</button>
     </form>
