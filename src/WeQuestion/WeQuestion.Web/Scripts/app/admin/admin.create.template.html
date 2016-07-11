@@ -13,13 +13,13 @@
                 <li ng-repeat="question in vm.newSurvey.questions" ui-tree-node data-nodrop-enabled="true">
                     <div>
                         <span ui-tree-handle>:::</span>
-                        <input ng-model="question.title"/>
+                        <input ng-model="question.title" placeholder="Question"/>
                     </div>
                     <ol ui-tree-nodes ng-model="question.options">
                         <li ng-repeat="option in question.options" ui-tree-node>
                             <div>
                                 <span ui-tree-handle>:::</span>
-                                <input ng-model="option.title"/>
+                                <input ng-model="option.text" placeholder="Possible answer"/>
                             </div>
                         </li>
                         

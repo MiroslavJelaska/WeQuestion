@@ -14,7 +14,6 @@
             addOption: addOption
         };
 
-        var i = 1;
         vm.treeOptions = {
             accept: function (sourceNodeScope, destNodesScope, destIndex) {
                 return destNodesScope.isParent(sourceNodeScope);
@@ -29,14 +28,14 @@
 
         function addQuestion() {
             vm.newSurvey.questions.push({
-                'title': 'Naslov'
+                'title': ''
             });
         }
 
         function addOption(question) {
             question.options = question.options || [];
             question.options.push({
-                'title': 'node1.1.1'
+                'title': ''
             });
         }
 
