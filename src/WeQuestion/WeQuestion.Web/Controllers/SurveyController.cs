@@ -11,17 +11,17 @@ namespace WeQuestion.Web.Controllers
     public class SurveyController : ApiController
     {
         public SurveyController(
-            GetAllSurveysQuery getAllSurveysQuery,
-            GetSurveyQuery getSurveyQuery,
+            GetAllSurveysQuery  getAllSurveysQuery,
+            GetSurveyQuery      getSurveyQuery,
             CreateSurvayCommand createSurvayCommand)
         {
-            _getAllSurveysQuery = getAllSurveysQuery;
-            _getSurveysQuery = getSurveyQuery;
+            _getAllSurveysQuery  = getAllSurveysQuery;
+            _getSurveysQuery     = getSurveyQuery;
             _createSurvayCommand = createSurvayCommand;
         }
 
-        private readonly GetAllSurveysQuery _getAllSurveysQuery;
-        private readonly GetSurveyQuery _getSurveysQuery;
+        private readonly GetAllSurveysQuery  _getAllSurveysQuery;
+        private readonly GetSurveyQuery      _getSurveysQuery;
         private readonly CreateSurvayCommand _createSurvayCommand;
 
         [HttpGet]

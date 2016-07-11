@@ -38,9 +38,6 @@ namespace WeQuestion.Web.App_Start
             builder.RegisterControllers(dataAccess).InstancePerRequest();
             builder.RegisterApiControllers(dataAccess).InstancePerRequest();
 
-            builder.RegisterType<HomeController>().InstancePerRequest();
-            builder.RegisterType<SurveyController>().InstancePerRequest();
-
             builder.RegisterAssemblyModules(dataAccess);
             builder.RegisterModule<AutofacWebTypesModule>();
 

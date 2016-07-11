@@ -9,7 +9,8 @@ namespace WeQuestion.Web
             bundles.Add(new StyleBundle("~/bundles/libs")
             .Include(
                 "~/Scripts/libs/modernizr-2.6.2.js",
-                "~/Scripts/libs/js-enumeration-v.0.2.3.js"
+                "~/Scripts/libs/js-enumeration-v.0.2.3.js",
+                "~/Scripts/libs/angular-ui-tree/angular-ui-tree.js"
             ));
 
             bundles.Add(new StyleBundle("~/bundles/app")

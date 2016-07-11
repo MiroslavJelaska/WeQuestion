@@ -1,16 +1,39 @@
 ﻿<div>
-    Entry
     <form>
 
         <label>Title</label>
         <input type="text" ng-model="vm.newSurvey.title"/>
 
-        <div ng-repeat="question in vm.newSurvey.questions">
-            <input type="text" ng-model="question.title"/>
-        </div>
         <br />
-        <button ng-click="vm.action.addQuestion()">+</button>
+        
         <br/>
+
+        <div ui-tree="vm.treeOptions" data-max-depth="2" data-empty-placeholder-enabled="false">
+            <ol ui-tree-nodes ng-model="vm.newSurvey.questions">
+                <li ng-repeat="question in vm.newSurvey.questions" ui-tree-node data-nodrop-enabled="true">
+                    <div>
+                        <span ui-tree-handle>:::</span>
+                        <input ng-model="question.title"/>
+                    </div>
+                    <ol ui-tree-nodes ng-model="question.options">
+                        <li ng-repeat="option in question.options" ui-tree-node>
+                            <div>
+                                <span ui-tree-handle>:::</span>
+                                <input ng-model="option.title"/>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <button ng-click="vm.action.addOption(question)">Add option</button>
+                        </li>
+                    </ol>
+                </li>
+
+                <li>
+                    <button ng-click="vm.action.addQuestion()"> Add question</button>
+                </li>
+            </ol>
+        </div>
 
         <button type="submit" ng-click="vm.action.submit()">Submit</button>
     </form>

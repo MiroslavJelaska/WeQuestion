@@ -175,6 +175,10 @@
     <Content Include="Scripts\app\app.module.js" />
     <Content Include="Scripts\app\common\constants\surveyState.js" />
     <Content Include="Scripts\app\common\services\surveyService.js" />
+    <Content Include="Scripts\libs\angular-ui-tree\angular-ui-tree.css" />
+    <Content Include="Scripts\libs\angular-ui-tree\angular-ui-tree.js" />
+    <Content Include="Scripts\libs\angular-ui-tree\angular-ui-tree.min.css" />
+    <Content Include="Scripts\libs\angular-ui-tree\angular-ui-tree.min.js" />
     <Content Include="Scripts\libs\js-enumeration-v.0.2.3.js" />
     <Content Include="Scripts\libs\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
