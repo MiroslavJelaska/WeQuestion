@@ -14,9 +14,10 @@
             addOption: addOption
         };
 
+        var i = 1;
         vm.treeOptions = {
             accept: function (sourceNodeScope, destNodesScope, destIndex) {
-                return sourceNodeScope.$id === destNodesScope.$id;
+                return destNodesScope.isParent(sourceNodeScope);
             }
         }
 
