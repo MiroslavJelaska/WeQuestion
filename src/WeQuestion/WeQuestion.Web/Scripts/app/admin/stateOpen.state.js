@@ -11,9 +11,16 @@
             data: {
                 currentSurveyState: surveyState.Open
             },
-            templateUrl: '/Scripts/app/admin/admin.statePanel.template.html',
-            controller: 'admin_StatePanelController',
-            controllerAs: 'vm'
+            views: {
+                'menu@admin': {
+                    templateUrl: '/Scripts/app/admin/header.template.html'
+                },
+                'content@admin': {
+                    templateUrl: '/Scripts/app/admin/statePanel.template.html',
+                    controller: 'admin_StatePanelController',
+                    controllerAs: 'vm'
+                }
+            }
         });
     }
 })();
