@@ -21,22 +21,17 @@
         }
 
         function submit() {
-            console.log(vm.newSurvey);
             surveyService.create(vm.newSurvey)
-                .then(x => console.log(x));
+            .then(x => console.log(x));
         }
 
         function addQuestion() {
-            vm.newSurvey.questions.push({
-                'title': ''
-            });
+            vm.newSurvey.questions.push({});
         }
 
         function addOption(question) {
             question.options = question.options || [];
-            question.options.push({
-                'title': ''
-            });
+            question.options.push({});
         }
 
         (function init() {

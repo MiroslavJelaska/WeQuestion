@@ -1,4 +1,5 @@
-﻿using data = WeQuestion.Data.Entities;
+﻿using System.Linq;
+using data = WeQuestion.Data.Entities;
 using dto = WeQuestion.Domain.Dto;
 
 namespace WeQuestion.Domain.Mappers
@@ -10,7 +11,8 @@ namespace WeQuestion.Domain.Mappers
             return new dto::Question.Details()
             {
                 Id   = question.Id,
-                Text = question.Text
+                Text = question.Text,
+                Options = question.AnswerOptions.Select(OptionMapper.Map).ToList()
             };
         }
     }

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using WeQuestion.Data;
 using WeQuestion.Data.Entities;
@@ -19,10 +18,28 @@ namespace WeQuestion.Domain.Commands
         public dto::Survey.ShortDetails Execute(dto::Survey.Create newSurvay)
         {
             var questionRecords = 
-                newSurvay.Questions
+                Enumerable.Range(0, newSurvay.Questions.Count)
+                .Zip(
+                    second:         newSurvay.Questions,
+                    resultSelector: (i, question) => new { index = i, question }
+                )
                 .Select(newQuestion => new Question()
                 {
-                    Text = newQuestion.Title
+                    Index         = newQuestion.index,
+                    Text          = newQuestion.question.Title,
+                    AnswerOptions =
+                        Enumerable.Range(0, newQuestion.question.Options.Count)
+                        .Zip(
+                            second:         newQuestion.question.Options,
+                            resultSelector: (i, option) => new { index = i, option }
+                        )
+                        .Select(newOption => new AnswerOption()
+                        {
+                            Index     = newQuestion.index,
+                            Text      = newOption.option.Text,
+                            IsCorrect = newOption.option.IsCorrect
+                        })
+                        .ToList()
                 })
                 .ToList();
 
@@ -39,5 +56,7 @@ namespace WeQuestion.Domain.Commands
 
             return  SurveyMapper.ShortDetails.Map(surveyRecord);
         }
+
+        
     }
 }

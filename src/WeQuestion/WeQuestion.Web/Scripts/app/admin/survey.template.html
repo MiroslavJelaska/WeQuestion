@@ -3,9 +3,14 @@
 
     <div>
         <span ng-if="!vm.survey.questions || !vm.survey.questions.length">Nema pitanja</span>
-        <div ng-repeat="question in vm.survey.questions">
-            <p>{{question.text}}</p>
-        </div>
+        <ul ng-repeat="question in vm.survey.questions">
+            <li>
+                {{question.text}}
+                <ul ng-repeat="option in question.options">
+                    <li>{{option.text}}</li>
+                </ul>
+            </li>
+        </ul>
     </div>
 
 </div>
