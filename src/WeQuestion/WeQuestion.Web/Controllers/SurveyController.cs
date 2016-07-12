@@ -13,16 +13,19 @@ namespace WeQuestion.Web.Controllers
         public SurveyController(
             GetAllSurveysQuery  getAllSurveysQuery,
             GetSurveyQuery      getSurveyQuery,
-            CreateSurvayCommand createSurvayCommand)
+            CreateSurvayCommand createSurvayCommand,
+            UpdateSurvayCommand updateSurvayCommand)
         {
             _getAllSurveysQuery  = getAllSurveysQuery;
             _getSurveysQuery     = getSurveyQuery;
             _createSurvayCommand = createSurvayCommand;
+            _updateSurvayCommand = updateSurvayCommand;
         }
 
         private readonly GetAllSurveysQuery  _getAllSurveysQuery;
         private readonly GetSurveyQuery      _getSurveysQuery;
         private readonly CreateSurvayCommand _createSurvayCommand;
+        private readonly UpdateSurvayCommand _updateSurvayCommand;
 
         [HttpGet]
         [Route("")]
@@ -43,6 +46,13 @@ namespace WeQuestion.Web.Controllers
         public dto::Survey.ShortDetails Create(dto::Survey.Create createSurvey)
         {
             return _createSurvayCommand.Execute(createSurvey);
+        }
+
+        [HttpPut]
+        [Route("{id:int}")]
+        public dto::Survey.LongDetails Update(dto::Survey.Update updatedSurvay)
+        {
+            return _updateSurvayCommand.Execute(updatedSurvay);
         }
     }
 }

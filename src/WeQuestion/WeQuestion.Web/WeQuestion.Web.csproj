@@ -159,6 +159,8 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\app\admin\edit.controller.js" />
+    <Content Include="Scripts\app\admin\edit.state.js" />
     <Content Include="Scripts\app\admin\header.template.html" />
     <Content Include="Scripts\app\admin\survey.controller.js" />
     <Content Include="Scripts\app\admin\create.controller.js" />
@@ -169,7 +171,7 @@
     <Content Include="Scripts\app\admin\state.js" />
     <Content Include="Scripts\app\admin\stateOpen.state.js" />
     <Content Include="Scripts\app\admin\stateProvisional.state.js" />
-    <Content Include="Scripts\app\admin\create.template.html" />
+    <Content Include="Scripts\app\admin\editor.template.html" />
     <Content Include="Scripts\app\admin\statePanel.template.html" />
     <Content Include="Scripts\app\admin\statePanel.controller.js" />
     <Content Include="Scripts\app\app.config.js" />

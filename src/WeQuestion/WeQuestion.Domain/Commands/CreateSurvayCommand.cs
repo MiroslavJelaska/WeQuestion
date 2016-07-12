@@ -26,7 +26,7 @@ namespace WeQuestion.Domain.Commands
                 .Select(newQuestion => new Question()
                 {
                     Index         = newQuestion.index,
-                    Text          = newQuestion.question.Title,
+                    Text          = newQuestion.question.Text,
                     AnswerOptions =
                         Enumerable.Range(0, newQuestion.question.Options.Count)
                         .Zip(

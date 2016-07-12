@@ -32,10 +32,17 @@
             .then(result => result.data);
         }
 
+        function update(updatedSurvay) {
+            return $http
+            .put(baseUri + '/' + updatedSurvay.id, updatedSurvay)
+            .then(result => result.data);
+        }
+
         return {
             getAll: getAll,
             get:    get,
-            create: create
+            create: create,
+            update: update
         }
     }
 })();

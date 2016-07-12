@@ -1,12 +1,15 @@
 ﻿(function() {
     'use strict';
 
-    angular.module('app').controller('adminCreateController', adminCreateController);
+    angular.module('app').controller('adminEditController', adminEditController);
 
-    adminCreateController.$inject = ['$state', 'surveyService'];
+    adminEditController.$inject = ['$state', '$stateParams', 'surveyService'];
 
-    function adminCreateController($state, surveyService) {
+    function adminEditController($state, $stateParams, surveyService) {
         var vm = this;
+        const surveyId = $stateParams.id;
+
+        vm.submitting = false;
 
         vm.action = {
             submit:              submit,
@@ -22,8 +25,12 @@
         }
 
         function submit() {
-            surveyService.create(vm.newSurvey)
-            .then(x => console.log(x));
+            vm.saveInProgress = true;
+            surveyService.update(vm.newSurvey)
+            .then(x => {
+                 console.log(x);
+                 vm.saveInProgress = false;
+            });
         }
 
         function addQuestion() {
@@ -49,10 +56,11 @@
         }
 
         (function init() {
-            vm.newSurvey =
-            {
-                questions: []
-            };
+            surveyService.get(surveyId)
+            .then(function (survey) {
+                console.log(survey);
+                vm.newSurvey = survey;
+            });
         })();
     }
 })();
