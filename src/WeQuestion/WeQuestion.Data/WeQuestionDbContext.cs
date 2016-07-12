@@ -38,7 +38,7 @@ namespace WeQuestion.Data
                 {
                     new Survey()
                     {
-                        AccessToken = "CarTreePc",
+                        AccessToken = null,
                         State = SurvayState.Provisional,
                         Title = "Cryptography",
                         Questions = new List<Question>()

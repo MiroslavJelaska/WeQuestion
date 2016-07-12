@@ -56,7 +56,5 @@ namespace WeQuestion.Domain.Commands
 
             return  SurveyMapper.ShortDetails.Map(surveyRecord);
         }
-
-        
     }
 }

@@ -22,6 +22,7 @@
                                 <span>{{$index | numberToLetter}}</span>
                                 <span ui-tree-handle>:::</span>
                                 <input ng-model="option.text" placeholder="Possible answer"/>
+                                <input type="radio" ng-model="option.isCorrect" ng-value="true" ng-click="vm.action.uncheck(option)">
                             </div>
                         </li>
                         
