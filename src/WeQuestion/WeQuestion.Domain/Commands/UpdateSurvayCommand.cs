@@ -21,8 +21,8 @@ namespace WeQuestion.Domain.Commands
         {
             _deleteQuestionsAndRelatedOptions(updatedSurvey);
 
-            var surveyRecord = _dbContext.Surveys.Find(updatedSurvey.Id);
-            surveyRecord.Title = updatedSurvey.Title;
+            var surveyRecord       = _dbContext.Surveys.Find(updatedSurvey.Id);
+            surveyRecord.Title     = updatedSurvey.Title;
             surveyRecord.Questions = _getQuestionsWithRelatedOptions(updatedSurvey);
 
             _dbContext.SaveChanges();
@@ -49,13 +49,13 @@ namespace WeQuestion.Domain.Commands
                 updatedSurvey.Questions != null
                 ? (Enumerable.Range(0, updatedSurvey.Questions.Count)
                 .Zip(
-                    second: updatedSurvey.Questions,
+                    second:         updatedSurvey.Questions,
                     resultSelector: (i, question) => new { index = i, question }
                 )
                 .Select(newQuestion => new Question()
                 {
-                    Index = newQuestion.index,
-                    Text = newQuestion.question.Text,
+                    Index         = newQuestion.index,
+                    Text          = newQuestion.question.Text,
                     AnswerOptions = _getOptionsForQuestion(newQuestion.question)
                 })
                 .ToList())
@@ -68,13 +68,13 @@ namespace WeQuestion.Domain.Commands
                 newQuestion.Options != null
                 ? (Enumerable.Range(0, newQuestion.Options.Count)
                 .Zip(
-                    second: newQuestion.Options,
+                    second:         newQuestion.Options,
                     resultSelector: (i, option) => new {index = i, option}
                 )
                 .Select(newOption => new AnswerOption()
                 {
-                    Index = newOption.index,
-                    Text = newOption.option.Text,
+                    Index     = newOption.index,
+                    Text      = newOption.option.Text,
                     IsCorrect = newOption.option.IsCorrect
                 })
                 .ToList())

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using WeQuestion.Data;
 using WeQuestion.Data.Entities;
@@ -17,37 +18,11 @@ namespace WeQuestion.Domain.Commands
 
         public dto::Survey.ShortDetails Execute(dto::Survey.Create newSurvay)
         {
-            var questionRecords = 
-                Enumerable.Range(0, newSurvay.Questions.Count)
-                .Zip(
-                    second:         newSurvay.Questions,
-                    resultSelector: (i, question) => new { index = i, question }
-                )
-                .Select(newQuestion => new Question()
-                {
-                    Index         = newQuestion.index,
-                    Text          = newQuestion.question.Text,
-                    AnswerOptions =
-                        Enumerable.Range(0, newQuestion.question.Options.Count)
-                        .Zip(
-                            second:         newQuestion.question.Options,
-                            resultSelector: (i, option) => new { index = i, option }
-                        )
-                        .Select(newOption => new AnswerOption()
-                        {
-                            Index     = newQuestion.index,
-                            Text      = newOption.option.Text,
-                            IsCorrect = newOption.option.IsCorrect
-                        })
-                        .ToList()
-                })
-                .ToList();
-
             var surveyRecord = new Survey()
             {
                 Title = newSurvay.Title,
                 State = SurvayState.Provisional,
-                Questions = questionRecords
+                Questions = _getQuestionsWithRelatedOptions(newSurvay)
             };
             _dbContext.Surveys.Add(surveyRecord);
 
@@ -55,6 +30,43 @@ namespace WeQuestion.Domain.Commands
             _dbContext.SaveChanges();
 
             return  SurveyMapper.ShortDetails.Map(surveyRecord);
+        }
+        private ICollection<Question> _getQuestionsWithRelatedOptions(dto::Survey.Create newSurvey)
+        {
+            return
+                newSurvey.Questions != null
+                ? (Enumerable.Range(0, newSurvey.Questions.Count)
+                .Zip(
+                    second:         newSurvey.Questions,
+                    resultSelector: (i, question) => new { index = i, question }
+                )
+                .Select(newQuestion => new Question()
+                {
+                    Index         = newQuestion.index,
+                    Text          = newQuestion.question.Text,
+                    AnswerOptions = _getOptionsForQuestion(newQuestion.question)
+                })
+                .ToList())
+                : new List<Question>();
+        }
+
+        private ICollection<AnswerOption> _getOptionsForQuestion(dto::Question.Create newQuestion)
+        {
+            return
+                newQuestion.Options != null
+                ? (Enumerable.Range(0, newQuestion.Options.Count)
+                .Zip(
+                    second:         newQuestion.Options,
+                    resultSelector: (i, option) => new { index = i, option }
+                )
+                .Select(newOption => new AnswerOption()
+                {
+                    Index     = newOption.index,
+                    Text      = newOption.option.Text,
+                    IsCorrect = newOption.option.IsCorrect
+                })
+                .ToList())
+                : new List<AnswerOption>();
         }
     }
 }
