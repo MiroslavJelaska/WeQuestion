@@ -20,6 +20,8 @@ namespace WeQuestion.Web
 
                 "~/Scripts/app/common/constants/surveyState.js",
 
+                "~/Scripts/app/common/filters/numberToLetter.js",
+
                 "~/Scripts/app/common/services/surveyService.js",
 
                 "~/Scripts/app/common/directives/editSurveyQuestion.js",

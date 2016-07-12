@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using WeQuestion.Data.Entities;
 
@@ -39,7 +40,32 @@ namespace WeQuestion.Data
                     {
                         AccessToken = "CarTreePc",
                         State = SurvayState.Provisional,
-                        Title = "Test poll"
+                        Title = "Cryptography",
+                        Questions = new List<Question>()
+                        {
+                            new Question()
+                            {
+                                Text = "This is an encryption/decryption key known only to the party or parties that exchange secret messages.",
+                                AnswerOptions = new List<AnswerOption>()
+                                {
+                                    new AnswerOption() { Text = "e-signature" },
+                                    new AnswerOption() { Text = "digital certificate" },
+                                    new AnswerOption() { Text = "private key", IsCorrect = true},
+                                    new AnswerOption() { Text = "security token" }
+                                }
+                            },
+                            new Question()
+                            {
+                                Text = "This was commonly used in cryptography during World War II. ",
+                                AnswerOptions = new List<AnswerOption>()
+                                {
+                                    new AnswerOption() { Text = "tunneling" },
+                                    new AnswerOption() { Text = "personalization" },
+                                    new AnswerOption() { Text = "van Eck phreaking " },
+                                    new AnswerOption() { Text = "one-time pad", IsCorrect = true }
+                                }
+                            }
+                        }
                     },
                     new Survey()
                     {

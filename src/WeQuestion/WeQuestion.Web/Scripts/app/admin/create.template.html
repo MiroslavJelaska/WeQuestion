@@ -12,12 +12,14 @@
             <ol ui-tree-nodes ng-model="vm.newSurvey.questions">
                 <li ng-repeat="question in vm.newSurvey.questions" ui-tree-node data-nodrop-enabled="true">
                     <div>
+                        <span>{{$index + 1}}</span>
                         <span ui-tree-handle>:::</span>
                         <input ng-model="question.title" placeholder="Question"/>
                     </div>
                     <ol ui-tree-nodes ng-model="question.options">
                         <li ng-repeat="option in question.options" ui-tree-node>
                             <div>
+                                <span>{{$index | numberToLetter}}</span>
                                 <span ui-tree-handle>:::</span>
                                 <input ng-model="option.text" placeholder="Possible answer"/>
                             </div>
