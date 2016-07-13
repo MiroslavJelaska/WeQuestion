@@ -1,5 +1,16 @@
-﻿<ul class="menu">
-    <li class="menu-option"><a ui-sref="admin.provisional">Provisional</a></li>
-    <li class="menu-option"><a ui-sref="admin.open">Open</a></li>
-    <li class="menu-option"><a ui-sref="admin.closed">Closed</a></li>
-</ul>
+﻿<div class="menu">
+    <div class="menu-options">
+        <div class="menu-option" ui-sref="admin.provisional">
+            <a >Provisional</a>
+            <div class="active-label" ui-sref-active="active" ng-if="vm.stateName === 'admin.provisional'"></div>
+        </div>
+        <div class="menu-option" ui-sref="admin.open">
+            <a >Open</a>
+            <div class="active-label" ui-sref-active="active" ng-if="vm.stateName === 'admin.open'"></div>
+        </div>
+        <div class="menu-option" ui-sref="admin.closed">
+            <a >Closed</a>
+            <div class="active-label" ui-sref-active="active" ng-if="vm.stateName === 'admin.closed'"></div>
+        </div>
+    </div>
+</div>

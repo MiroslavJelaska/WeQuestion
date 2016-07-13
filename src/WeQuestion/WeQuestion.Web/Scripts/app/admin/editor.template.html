@@ -1,6 +1,9 @@
 ﻿<div>
-    <form>
+    <div ng-show="!vm.newSurvey">
+        Loading...
+    </div>
 
+    <form>
         <label>Title</label>
         <input type="text" ng-model="vm.newSurvey.title"/>
 
@@ -23,7 +26,7 @@
                                 <input type="radio" ng-model="option.isCorrect" ng-value="true" ng-click="vm.action.uncheckOtherOptions(option)">
                             </div>
                         </li>
-                        
+
                         <li>
                             <button ng-click="vm.action.addOption(question)">Add option</button>
                         </li>

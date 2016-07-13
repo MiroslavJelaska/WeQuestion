@@ -1,4 +1,8 @@
 ﻿<div>
+    <div ng-show="!vm.survey">
+        Loading...
+    </div>
+
     <div ng-if="vm.survey.title">
         <h2 class="survey-title">{{vm.survey.title}}</h2>
     </div>
@@ -24,8 +28,8 @@
                             <span class="option-index">{{$index | numberToLetter}}</span>
                         </div>
                         <div class="question-text">
-                             {{option.text}}
-                         </div>
+                            {{option.text}}
+                        </div>
                     </li>
                 </ol>
             </li>

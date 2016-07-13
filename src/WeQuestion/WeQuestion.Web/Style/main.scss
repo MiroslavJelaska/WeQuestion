@@ -76,6 +76,7 @@ body {
     .menu-options{
         padding-left:75px;
         .menu-option {
+            cursor: pointer;
             display: inline-block;
             font-family: 'Open Sans', sans-serif;
             width: 75px;
@@ -141,6 +142,7 @@ body {
             margin-left: 75px;
 
             .option{
+                
                 margin:10px;
                 .option-index-container{
                     height:22px;

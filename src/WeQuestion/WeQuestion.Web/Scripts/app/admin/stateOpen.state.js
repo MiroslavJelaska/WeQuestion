@@ -13,7 +13,9 @@
             },
             views: {
                 'menu@admin': {
-                    templateUrl: '/Scripts/app/admin/header.template.html'
+                    templateUrl: '/Scripts/app/admin/header.template.html',
+                    controller: Menu,
+                    controllerAs: 'vm'
                 },
                 'content@admin': {
                     templateUrl: '/Scripts/app/admin/statePanel.template.html',
@@ -22,5 +24,13 @@
                 }
             }
         });
+
+
+        Menu.$inject = ['$stateParams', '$state'];
+        function Menu($stateParams, $state) {
+            var vm = this;
+            vm.surveyId = $stateParams.id;
+            vm.stateName = $state.current.name;
+        }
     }
 })();
