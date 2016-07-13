@@ -1,5 +1,8 @@
 ﻿<div>
 
+    <div ng-if="vm.currentState === vm.surveyState.Provisional">
+        <button ui-sref="admin.create">Create</button>
+    </div>
     <table>
         <thead>
         <tr>
@@ -7,15 +10,12 @@
             <th>Title</th>
         </tr>
         </thead>
-        <tbody ng-repeat="survey in vm.surveys">
-        <tr class="survey-list-item" ui-sref="admin.survey({ id: survey.id })">
-            <td>{{$index + 1}}</td>
-            <td>{{survey.title}}</td>
-        </tr>
+        <tbody >
+            <tr ng-repeat="survey in vm.surveys" class="survey-list-item" ui-sref="admin.survey({ id: survey.id })">
+                <td>{{$index + 1}}</td>
+                <td>{{survey.title}}</td>
+            </tr>
         </tbody>
     </table>
-    <div ng-if="vm.currentState === vm.surveyState.Provisional">
-        <button ui-sref="admin.create">Create</button>
-    </div>
 
 </div>
