@@ -1,14 +1,31 @@
 ﻿<div>
-    <h2>{{vm.survey.title}}</h2>
+    <div ng-if="vm.survey.title">
+        <h2 class="survey-title">{{vm.survey.title}}</h2>
+    </div>
+    <div ng-if="!vm.survey.title">
+        <h2 class="survey-title survey-title-notDefined">Not defined</h2>
+    </div>
 
-    <div>
+    <div class="questions-container">
         <span ng-if="!vm.survey.questions || !vm.survey.questions.length">Nema pitanja</span>
-        <ol type="1">
-            <li ng-repeat="question in vm.survey.questions | orderBy: 'index'" >
-                {{question.text}}
-                <ol type="a">
-                    <li ng-repeat="option in question.options | orderBy: 'index'">
-                        {{option.text}}
+        <ol>
+            <li ng-repeat="question in vm.survey.questions | orderBy: 'index'">
+                <div class="question-head">
+                    <div class="question-index-container">
+                        <span class="question-index">{{$index + 1}}</span>
+                    </div>
+                    <div class="question-text">
+                        {{question.text}}
+                    </div>
+                </div>
+                <ol class="options">
+                    <li ng-repeat="option in question.options | orderBy: 'index'" class="option">
+                        <div class="option-index-container">
+                            <span class="option-index">{{$index | numberToLetter}}</span>
+                        </div>
+                        <div class="question-text">
+                             {{option.text}}
+                         </div>
                     </li>
                 </ol>
             </li>

@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width" />
     <title>WeQuestion</title>
     <base href="/">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="~/Scripts/libs/angular-ui-tree/angular-ui-tree.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/style.css">
 </head>
 <body>
 
-<div ui-view class="main-wrapper">
+<div class="projectName-wrapper">
+    <span class="projectName">WeQuestion</span>
+</div>
+
+<div class="main-wrapper" ui-view>
+
+   
+    <header ui-view="menu" class="menu"></header>
+    <div ui-view="content" class="main-content"></div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-resource.js" type="text/javascript"></script>

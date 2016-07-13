@@ -10,7 +10,7 @@
             url: '/edit',
             views: {
                 'menu@admin': {
-                    template: '<a ui-sref="admin.provisional"> ✕ </a> <a ui-sref="admin.survey({ id: vm.surveyId})"> preview </a>',
+                    templateUrl: '/Scripts/app/admin/survey-header.template.html',
                     controller: Menu,
                     controllerAs: 'vm'
                 },
@@ -22,10 +22,11 @@
             }
         });
 
-        Menu.$inject = ['$stateParams'];
-        function Menu($stateParams) {
+        Menu.$inject = ['$stateParams', '$state'];
+        function Menu($stateParams, $state) {
             var vm = this;
             vm.surveyId = $stateParams.id;
+            vm.stateName = $state.current.name;
         }
     }
 })();

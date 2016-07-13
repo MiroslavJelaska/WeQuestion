@@ -166,6 +166,7 @@
     <Content Include="Scripts\app\admin\survey.controller.js" />
     <Content Include="Scripts\app\admin\create.controller.js" />
     <Content Include="Scripts\app\admin\survey.state.js" />
+    <Content Include="Scripts\app\admin\survey-header.template.html" />
     <Content Include="Scripts\app\admin\survey.template.html" />
     <Content Include="Scripts\app\admin\stateClosed.state.js" />
     <Content Include="Scripts\app\admin\create.state.js" />

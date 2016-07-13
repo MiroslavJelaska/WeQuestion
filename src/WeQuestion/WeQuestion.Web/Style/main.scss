@@ -1,16 +1,167 @@
-﻿body {
-    font-size: 14px;
-    background-color: #e6e6e6;
+﻿@mixin shadow(){
+    -webkit-box-shadow: 0px 0px 14px -4px rgba(0,0,0,0.30);
+    -moz-box-shadow: 0px 0px 14px -4px rgba(0,0,0,0.30);
+    box-shadow: 0px 0px 14px -4px rgba(0,0,0,0.30);
 }
-.main-wrapper {
-    width: 770px;
-    margin: 0 auto;
-    background-color: #ffffff;
+$color-green: #8cbd3f;
+$body-bg-color: #e6e6e6;
+$divider-clolor: #e1e1e1;
 
-    -webkit-box-shadow: 0px 0px 14px -4px rgba(0,0,0,0.49);
-    -moz-box-shadow: 0px 0px 14px -4px rgba(0,0,0,0.49);
-    box-shadow: 0px 0px 14px -4px rgba(0,0,0,0.49);
+@keyframes projectNameColorChange {
+    from {color: #888888;}
+    to {color: $color-green;}
 }
+
+body {
+    font-size: 14px;
+    background-color: $body-bg-color;
+}
+
+.projectName-wrapper{
+    margin: auto 0;
+    text-align: center;
+    
+    .projectName {
+        font-size: 1.3em;
+        color: #888888;
+        font-weight: 400;
+        font-family: 'Droid Sans', sans-serif;
+        line-height: 55px;
+    
+        &:hover{
+            animation-name:projectNameColorChange;
+            animation-duration:0.3s;
+            color:$color-green;
+        }
+    }
+}
+
+.main-wrapper{
+    margin: 0 auto;
+    max-width: 740px;
+    background-color: #fff;
+    @include shadow();
+    border-radius: 4px;
+}
+
+.menu{
+    width: 100%;
+    height: 35px;
+    border-bottom: 1px solid $divider-clolor;
+    
+
+    .close {
+        width: 35px;
+        background-color: #343434;
+        float:left;
+        line-height: 35px;
+        border-radius: 4px 0 0 0;
+
+        .inner{
+            width: 50%;
+            margin: 0 auto; 
+        }
+        a {
+            color: white;
+            text-decoration:none;
+            text-align:center;
+            vertical-align:central;
+        }
+
+        &:hover{
+            background-color: #4e4d4d;
+            cursor: pointer;
+        }
+    }
+    .menu-options{
+        padding-left:75px;
+        .menu-option {
+            display: inline-block;
+            font-family: 'Open Sans', sans-serif;
+            width: 75px;
+            line-height: 35px;
+            position: relative;
+            text-align: center;
+            a {
+                text-decoration: none;
+            }
+
+            .active-label{
+                height:3px;
+                width:100%;
+                background-color:$color-green;
+                position:absolute;
+                bottom: 0px;
+            }
+        }
+    }
+}
+
+.main-content {
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+    padding: 10px 45px;
+
+    .survey-title{
+        font-family: 'Open Sans', sans-serif;
+        font-weight:100;
+        font-size:2em;
+    }
+
+    * li { list-style: none; }
+    * ol { padding: 0;}
+    
+    .questions-container {
+        .question-head {
+            min-height: 35px;
+            position: relative;
+            background-color: #f8f6f6;
+            overflow:auto;
+        }
+        .question-index-container{
+            background-color: $color-green;
+            width:25px;
+            height:100%;
+            min-height: 35px;
+            position: absolute;
+            top:0;
+            left:0;
+            float:left;
+            text-align: center;
+            .question-index{
+                color: white;
+                line-height: 35px;
+            }
+        }
+        .question-text{
+            margin: 5px 40px;
+        }
+
+        .options{
+            margin-left: 75px;
+
+            .option{
+                margin:10px;
+                .option-index-container{
+                    height:22px;
+                    width: 22px;
+                    display: inline-block;
+                    background-color: #00425e;
+                    border-radius: 50%;
+                    color:white;
+                    text-align:center;
+                    .option-index{
+                        line-height: 22px;
+                    }
+                }
+                .question-text{
+                    display: inline;
+                }
+            }
+        }
+    }
+}
+
 
 .menu-option {
     display: inline-block;
@@ -18,9 +169,11 @@
     text-decoration: none;
     color: #2A2C2B 
 }
+
 .survey-list-item:hover {
     background-color: #b0e0e6;
 }
+
 .angular-ui-tree-handle:hover {
-    cursor: ns-resize; 
+    cursor: ns-resize;
 }

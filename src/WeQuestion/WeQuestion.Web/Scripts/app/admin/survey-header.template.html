@@ -1,0 +1,15 @@
+﻿<div class="close" ui-sref="admin.provisional">
+    <div class="inner">
+        <a>✕</a>
+    </div>
+</div>
+<div class="menu-options">
+    <div class="menu-option" ui-sref="admin.survey({id: vm.surveyId})">
+        <a> Preview </a>
+        <div class="active-label" ng-if="vm.stateName === 'admin.survey'"></div>
+    </div>
+    <div class="menu-option" ui-sref="admin.survey.edit()">
+        <a> Edit </a>
+        <div class="active-label" ui-sref-active="active" ng-if="vm.stateName === 'admin.survey.edit'"></div>
+    </div>
+</div>
