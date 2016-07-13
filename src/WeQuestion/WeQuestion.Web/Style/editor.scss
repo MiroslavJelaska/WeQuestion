@@ -1,0 +1,33 @@
+﻿@import "main.scss";
+
+.editor{
+
+    input, textarea {
+        line-height: 1.8em;
+        padding: 2px 3px;
+        border: 1px solid $divider-color;
+        border-radius: 3px;
+    }
+
+    .title{
+        margin: 10px 0 20px 0;
+    }
+
+    .button{
+        margin: 5px 0;
+    }
+    .button-option{
+        margin: 5px 0;
+        margin-left: 35px;
+    }
+
+    textarea{
+        width: 70%;
+        display:inline-block;
+    }
+    .question-index-container{
+        float:left;
+        display:inline-block;
+    }
+
+}

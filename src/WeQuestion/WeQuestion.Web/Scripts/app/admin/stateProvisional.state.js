@@ -13,7 +13,7 @@
             },
             views: {
                 'menu@admin': {
-                    templateUrl: '/Scripts/app/admin/header.template.html',
+                    templateUrl: '/Scripts/app/admin/statePanel-header.template.html',
                     controller: Menu,
                     controllerAs: 'vm'
                 },

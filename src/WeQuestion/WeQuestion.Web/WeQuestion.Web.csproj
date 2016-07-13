@@ -162,7 +162,7 @@
     <Content Include="gulpfile.js" />
     <Content Include="Scripts\app\admin\edit.controller.js" />
     <Content Include="Scripts\app\admin\edit.state.js" />
-    <Content Include="Scripts\app\admin\header.template.html" />
+    <Content Include="Scripts\app\admin\statePanel-header.template.html" />
     <Content Include="Scripts\app\admin\survey.controller.js" />
     <Content Include="Scripts\app\admin\create.controller.js" />
     <Content Include="Scripts\app\admin\survey.state.js" />
@@ -215,6 +215,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Style\main.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Style\editor.scss" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,11 +1,10 @@
-﻿<div>
+﻿<div class="editor">
     <div ng-show="!vm.newSurvey">
         Loading...
     </div>
 
     <form>
-        <label>Title</label>
-        <input type="text" ng-model="vm.newSurvey.title"/>
+        <input type="text" class="title" ng-model="vm.newSurvey.title" placeholder="Title"/>
 
         <br/>
 
@@ -13,9 +12,13 @@
             <ol ui-tree-nodes ng-model="vm.newSurvey.questions">
                 <li ng-repeat="question in vm.newSurvey.questions" ui-tree-node data-nodrop-enabled="true">
                     <div>
-                        <span>{{$index + 1}}</span>
-                        <span ui-tree-handle>:::</span>
-                        <textarea ng-model="question.text" placeholder="Question"></textarea>
+                        <div class="question-index-container">
+                            <span class="question-index">{{$index + 1}}</span>
+                            <span ui-tree-handle>:::</span>
+                        </div>
+                        <div class="question-text">
+                            <textarea ng-model="question.text" placeholder="Question"></textarea>
+                        </div>
                     </div>
                     <ol ui-tree-nodes ng-model="question.options">
                         <li ng-repeat="option in question.options" ui-tree-node>
@@ -28,18 +31,18 @@
                         </li>
 
                         <li>
-                            <button ng-click="vm.action.addOption(question)">Add option</button>
+                            <button ng-click="vm.action.addOption(question)" class="button-small button-blue button-option">Add option</button>
                         </li>
                     </ol>
                 </li>
 
                 <li>
-                    <button ng-click="vm.action.addQuestion()"> Add question</button>
+                    <button ng-click="vm.action.addQuestion()" class="button button-blue button-question"> Add question</button>
                 </li>
             </ol>
         </div>
 
-        <button type="submit" ng-click="vm.action.submit()">Submit</button>
+        <button type="submit" ng-click="vm.action.submit()" class="button button-green">Submit</button>
         <span ng-if="vm.saveInProgress">Saving...</span>
     </form>
 
