@@ -1,9 +1,10 @@
 ﻿<div class="editor">
-    <div ng-show="!vm.newSurvey">
+    <div ng-hide="vm.newSurvey">
         Loading...
     </div>
 
-    <form>
+
+    <form ng-show="vm.newSurvey">
         <input type="text" class="title" ng-model="vm.newSurvey.title" placeholder="Title"/>
 
         <br/>
@@ -11,7 +12,7 @@
         <div ui-tree="vm.treeOptions" data-max-depth="2" data-empty-placeholder-enabled="false">
             <ol ui-tree-nodes ng-model="vm.newSurvey.questions">
                 <li ng-repeat="question in vm.newSurvey.questions" ui-tree-node data-nodrop-enabled="true">
-                    <div>
+                    <div class="question">
                         <div class="question-index-container">
                             <span class="question-index">{{$index + 1}}</span>
                             <span ui-tree-handle>:::</span>

@@ -10,7 +10,8 @@ namespace WeQuestion.Domain.Mappers
             return new dto::Option.Details()
             {
                 Id   = option.Id,
-                Text = option.Text
+                Text = option.Text,
+                IsCorrect = option.IsCorrect
             };
         }
     }
