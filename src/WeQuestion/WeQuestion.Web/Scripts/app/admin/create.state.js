@@ -10,7 +10,7 @@
             url: '/create',
             views: {
                 'menu@admin': {
-                    template: '<a ui-sref="admin.provisional"> ✕ </a>'
+                    template: '<div class="close" ui-sref="admin.provisional"><div class="inner"><a>✕</a></div></div>'
                 },
                 'content@admin': {
                     templateUrl: '/Scripts/app/admin/editor.template.html',

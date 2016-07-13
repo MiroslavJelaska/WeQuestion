@@ -12,6 +12,18 @@ $divider-clolor: #e1e1e1;
     to {color: $color-green;}
 }
 
+.button {
+    background-color: $color-green; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    cursor: pointer;
+}
+
 body {
     font-size: 14px;
     background-color: $body-bg-color;
@@ -74,7 +86,8 @@ body {
         }
     }
     .menu-options{
-        padding-left:75px;
+        display:inline-block;
+        padding-left: 50px;
         .menu-option {
             cursor: pointer;
             display: inline-block;
@@ -95,6 +108,12 @@ body {
                 bottom: 0px;
             }
         }
+    }
+
+    .actions {
+        display:inline-block;
+        float:right;
+        margin: 5px 25px;
     }
 }
 
