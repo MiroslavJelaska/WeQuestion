@@ -30,4 +30,50 @@
         display:inline-block;
     }
 
+    .question{
+        
+        .question-text{
+            display:inline-block;
+            width:80%;
+        }
+
+        .button-remove{
+            position:absolute;
+            top:0;
+           display:inline-block;
+        }
+    }
+    .button-remove{
+        background-color: $color-orange;
+        color: white;
+        border-radius: 50%;
+        width:18px;
+        height:18px;
+        text-align:center;
+        cursor: pointer;
+    }
+
+    .options{
+            margin-left: 25px;
+
+            .option{
+                display:block;
+                margin:10px;
+                .option-index-container{
+                    height:22px;
+                    width: 22px;
+                    display: inline-block;
+                    background-color: $color-light-blue;
+                    border-radius: 50%;
+                    color:white;
+                    text-align:center;
+                    .option-index{
+                        line-height: 22px;
+                    }
+                }
+                .question-text{
+                    display: inline;
+                }
+            }
+        }
 }

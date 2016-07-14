@@ -15,7 +15,8 @@
             submit:              submit,
             addQuestion:         addQuestion,
             addOption:           addOption,
-            uncheckOtherOptions: uncheckOtherOptions
+            uncheckOtherOptions: uncheckOtherOptions,
+            remove:              remove
         };
 
         vm.treeOptions = {
@@ -53,6 +54,11 @@
                 if (option.$$hashKey !== correctAnswerOption.$$hashKey)
                     option.isCorrect = false;
             });
+        }
+
+        function remove(node) {
+            console.log(11);
+            node.remove();
         }
 
         (function init() {

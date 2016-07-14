@@ -20,11 +20,14 @@
                         <div class="question-text">
                             <textarea ng-model="question.text" placeholder="Question"></textarea>
                         </div>
+                        <div class="button-remove" ng-click="vm.action.remove(this)">X</div>
                     </div>
-                    <ol ui-tree-nodes ng-model="question.options">
-                        <li ng-repeat="option in question.options" ui-tree-node>
+                    <ol ui-tree-nodes ng-model="question.options" class="options">
+                        <li ng-repeat="option in question.options" ui-tree-node class="option">
                             <div>
-                                <span>{{$index | numberToLetter}}</span>
+                                <div class="option-index-container">
+                                    <span class="option-index">{{$index | numberToLetter}}</span>
+                                </div>
                                 <span ui-tree-handle>:::</span>
                                 <input ng-model="option.text" placeholder="Possible answer"/>
                                 <input type="radio" ng-model="option.isCorrect" ng-value="true" ng-click="vm.action.uncheckOtherOptions(option)">
