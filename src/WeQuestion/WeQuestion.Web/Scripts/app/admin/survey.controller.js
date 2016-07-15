@@ -8,6 +8,7 @@
         var vm = this;
 
         const surveyId = $stateParams.id;
+
         surveyService.get(surveyId)
         .then(survey => vm.survey = survey);
     }

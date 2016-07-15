@@ -1,0 +1,14 @@
+﻿<div>
+    <h3 class="message">How long should questionnaire be open for participation?</h3>
+    <div class="duration-input">
+        <div class="duration-input-wrapper">
+            <input min="1" type="number" ng-model="duration"/> <span>min</span>
+        </div>
+    </div>
+    <div class="ngdialog-buttons">
+        <div class="ngdialog-buttons-wrapper">
+            <button type="button" class="button button-blue" ng-click="closeThisDialog()">Cancel</button>
+            <button type="button" class="button button-blue" ng-click="closeThisDialog(duration)">Publish</button>
+        </div>
+    </div>
+</div>

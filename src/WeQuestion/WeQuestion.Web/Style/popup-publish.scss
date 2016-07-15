@@ -1,0 +1,46 @@
+﻿.ngdialog-overlay{
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.ngdialog-content{
+    position: relative;
+    z-index:1000;
+    width:400px;
+    height:150px;
+    background-color:white;
+    margin: 0 auto;
+    padding: 15px;
+    border-radius:4px;
+
+    .message{
+        font-size:0.9em;
+        font-family: 'Open Sans', sans-serif;
+    }
+    .duration-input{
+        margin: 0 auto;
+        width: 50%;
+
+        .duration-input-wrapper{
+            margin: 0 auto;
+
+            input {
+                max-width: 75px;
+            }
+            clear:right;
+        }
+    }
+    .ngdialog-buttons{
+        position:relative;
+        margin-top: 15px;
+        
+        .ngdialog-buttons-wrapper {
+            margin: 0 auto;
+            width: 50%;
+        }
+    }
+}
