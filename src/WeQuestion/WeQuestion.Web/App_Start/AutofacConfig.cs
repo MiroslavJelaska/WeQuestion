@@ -6,7 +6,7 @@ using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using WeQuestion.Data;
-using WeQuestion.Web.Controllers;
+using WeQuestion.Domain.Services;
 
 namespace WeQuestion.Web.App_Start
 {
@@ -32,6 +32,9 @@ namespace WeQuestion.Web.App_Start
                 .AsSelf()
                 .InstancePerRequest();
 
+            builder.RegisterType<AccessTokenGenerator>()
+                .AsSelf()
+                .SingleInstance();
 
             RegisterDbContext(builder);
 

@@ -36,10 +36,6 @@
             $scope.confirm = function () {
                 console.log(123);
             }
-            $scope.closeThisDialog = function()
-            {
-                
-            }
             function publish() {
                 var dialog = ngDialog.open({
                     template:         '/Scripts/app/admin/popups/publish.template.html',
@@ -48,7 +44,7 @@
                     disableAnimation: true
                 });
                 dialog.closePromise.then(function(data) {
-                    console.log(data);
+                    console.log(data.value);
                 });
             }
         }

@@ -14,18 +14,21 @@ namespace WeQuestion.Web.Controllers
             GetAllSurveysQuery  getAllSurveysQuery,
             GetSurveyQuery      getSurveyQuery,
             CreateSurvayCommand createSurvayCommand,
-            UpdateSurvayCommand updateSurvayCommand)
+            UpdateSurvayCommand updateSurvayCommand,
+            OpenSurveyCommand openSurveyCommand)
         {
             _getAllSurveysQuery  = getAllSurveysQuery;
             _getSurveysQuery     = getSurveyQuery;
             _createSurvayCommand = createSurvayCommand;
             _updateSurvayCommand = updateSurvayCommand;
+            _openSurveyCommand   = openSurveyCommand;
         }
 
         private readonly GetAllSurveysQuery  _getAllSurveysQuery;
         private readonly GetSurveyQuery      _getSurveysQuery;
         private readonly CreateSurvayCommand _createSurvayCommand;
         private readonly UpdateSurvayCommand _updateSurvayCommand;
+        private readonly OpenSurveyCommand   _openSurveyCommand;
 
         [HttpGet]
         [Route("")]
@@ -53,6 +56,13 @@ namespace WeQuestion.Web.Controllers
         public dto::Survey.LongDetails Update(dto::Survey.Update updatedSurvay)
         {
             return _updateSurvayCommand.Execute(updatedSurvay);
+        }
+
+        [HttpPost]
+        [Route("{id:int}/open")]
+        public dto::Survey.ShortDetails Open(dto::Survey.Open openSurvay)
+        {
+            return _openSurveyCommand.Execute(openSurvay);
         }
     }
 }
