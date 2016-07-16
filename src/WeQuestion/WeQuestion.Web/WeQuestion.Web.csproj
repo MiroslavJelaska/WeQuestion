@@ -161,6 +161,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
+    <Content Include="Scripts\app\admin\manage.controller.js" />
+    <Content Include="Scripts\app\admin\manage.state.js" />
     <Content Include="Scripts\app\admin\edit.controller.js" />
     <Content Include="Scripts\app\admin\edit.state.js" />
     <Content Include="Scripts\app\admin\popups\publish.template.html" />
@@ -170,6 +172,7 @@
     <Content Include="Scripts\app\admin\create.controller.js" />
     <Content Include="Scripts\app\admin\survey.state.js" />
     <Content Include="Scripts\app\admin\survey-header.template.html" />
+    <Content Include="Scripts\app\admin\manage.template.html" />
     <Content Include="Scripts\app\admin\survey.template.html" />
     <Content Include="Scripts\app\admin\stateClosed.state.js" />
     <Content Include="Scripts\app\admin\create.state.js" />

@@ -35,7 +35,7 @@
                 .then(function(survey) {
                     console.log(survey);
                     fetchSurveyData();
-                    $state.go('admin.survey', { id: vm.surveyId });
+                    $state.go('admin.survey.manage');
                 });
             });
         }

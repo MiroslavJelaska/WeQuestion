@@ -12,6 +12,10 @@
         <a> Edit </a>
         <div class="active-label" ui-sref-active="active" ng-if="vm.stateName === 'admin.survey.edit'"></div>
     </div>
+    <div class="menu-option" ui-sref="admin.survey.manage()" ng-show="vm.currentSurveyState === vm.surveyState.Open">
+        <a> Manage </a>
+        <div class="active-label" ui-sref-active="active" ng-if="vm.stateName === 'admin.survey.manage'"></div>
+    </div>
 </div>
 <div class="actions">
     <button class="button button-green" ng-click="vm.action.publish()" ng-show="vm.currentSurveyState === vm.surveyState.Provisional">Publish</button>

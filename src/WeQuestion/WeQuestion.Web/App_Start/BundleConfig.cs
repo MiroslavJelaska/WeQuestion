@@ -31,6 +31,8 @@ namespace WeQuestion.Web
                 "~/Scripts/app/admin/create.state.js",
                 "~/Scripts/app/admin/edit.controller.js",
                 "~/Scripts/app/admin/edit.state.js",
+                "~/Scripts/app/admin/manage.controller.js",
+                "~/Scripts/app/admin/manage.state.js",
                 "~/Scripts/app/admin/survey.controller.js",
                 "~/Scripts/app/admin/survey-header.controller.js",
                 "~/Scripts/app/admin/survey.state.js",

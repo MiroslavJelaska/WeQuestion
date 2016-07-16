@@ -1,0 +1,17 @@
+﻿<div>
+    <div ng-hide="vm.survey">
+        Loading...
+    </div>
+
+    <div ng-show="vm.survey">
+        <div ng-if="vm.survey.title">
+            <span class="survey-title">{{vm.survey.title}}</span>
+        </div>
+
+        <div ng-show="vm.check.isSuveyOpen()">
+            Closing on: {{vm.survey.closingTimestamp | date: 'M.d. H:m:s'}}
+            AccessToken: {{vm.survey.accessToken}}
+        </div>
+    </div>
+
+</div>
