@@ -11,7 +11,7 @@
             views: {
                 'menu@admin': {
                     templateUrl: '/Scripts/app/admin/survey-header.template.html',
-                    controller: Menu,
+                    controller: 'surveyHeaderController',
                     controllerAs: 'vm'
                 },
                 'content@admin': {
@@ -21,12 +21,5 @@
                 }
             }
         });
-
-        Menu.$inject = ['$stateParams', '$state'];
-        function Menu($stateParams, $state) {
-            var vm = this;
-            vm.surveyId = $stateParams.id;
-            vm.stateName = $state.current.name;
-        }
     }
 })();

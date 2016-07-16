@@ -38,11 +38,18 @@
             .then(result => result.data);
         }
 
+        function open(updatedSurvay) {
+            return $http
+            .post(baseUri + '/' + updatedSurvay.id + '/open', updatedSurvay)
+            .then(result => result.data);
+        }
+
         return {
             getAll: getAll,
             get:    get,
             create: create,
-            update: update
+            update: update,
+            open:   open
         }
     }
 })();

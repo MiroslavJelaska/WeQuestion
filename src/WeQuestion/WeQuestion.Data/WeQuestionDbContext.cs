@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using WeQuestion.Data.Entities;
@@ -34,6 +35,41 @@ namespace WeQuestion.Data
 
             protected override void Seed(WeQuestionDbContext context)
             {
+
+                var questions = new List<Question>()
+                {
+                    new Question()
+                    {
+                        Text =
+                            "This is an encryption/decryption key known only to the party or parties that exchange secret messages.",
+                        AnswerOptions = new List<AnswerOption>()
+                        {
+                            new AnswerOption() {Text = "e-signature"},
+                            new AnswerOption() {Text = "digital certificate"},
+                            new AnswerOption() {Text = "private key", IsCorrect = true},
+                            new AnswerOption() {Text = "security token"}
+                        }
+                    }
+                };
+
+                var userParticipations = new List<SurveyParticipation>()
+                {
+                    new SurveyParticipation()
+                    {
+                        ProvisionalUser = new ProvisionalUser(),
+                        Comment = "Cool",
+                        UsersAnswers = new List<UsersAnswer>()
+                        {
+                           new UsersAnswer()
+                           {
+                               AnswerOption = questions[0].AnswerOptions.ToList()[0],
+                               Question = questions[0],
+                           }
+                        }
+                    }
+                };
+                userParticipations.ForEach(participation => context.SurveyParticipations.Add(participation));
+
                 new[]
                 {
                     new Survey()
@@ -69,13 +105,15 @@ namespace WeQuestion.Data
                     },
                     new Survey()
                     {
-                        AccessToken = "GlassBirdSwitch",
+                        AccessToken = "GlassBird",
                         State = SurvayState.Open,
-                        Title = "Test poll #2"
+                        Title = "Test poll #2",
+                        ClosingTimestamp = DateTimeOffset.UtcNow.AddMinutes(15),
+                        Questions = questions,
                     },
                     new Survey()
                     {
-                        AccessToken = "GlassBirdSwitch",
+                        AccessToken = "WoodSwitch",
                         State = SurvayState.Closed,
                         Title = "Test poll #3"
                     }

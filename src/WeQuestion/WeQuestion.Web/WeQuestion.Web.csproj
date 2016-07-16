@@ -165,6 +165,7 @@
     <Content Include="Scripts\app\admin\edit.state.js" />
     <Content Include="Scripts\app\admin\popups\publish.template.html" />
     <Content Include="Scripts\app\admin\statePanel-header.template.html" />
+    <Content Include="Scripts\app\admin\survey-header.controller.js" />
     <Content Include="Scripts\app\admin\survey.controller.js" />
     <Content Include="Scripts\app\admin\create.controller.js" />
     <Content Include="Scripts\app\admin\survey.state.js" />

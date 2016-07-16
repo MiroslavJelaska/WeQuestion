@@ -8,11 +8,11 @@
         <a> Preview </a>
         <div class="active-label" ng-if="vm.stateName === 'admin.survey'"></div>
     </div>
-    <div class="menu-option" ui-sref="admin.survey.edit()">
+    <div class="menu-option" ui-sref="admin.survey.edit()" ng-show="vm.currentSurveyState === vm.surveyState.Provisional">
         <a> Edit </a>
         <div class="active-label" ui-sref-active="active" ng-if="vm.stateName === 'admin.survey.edit'"></div>
     </div>
 </div>
 <div class="actions">
-    <button class="button button-green" ng-click="vm.action.publish()">Publish</button>
+    <button class="button button-green" ng-click="vm.action.publish()" ng-show="vm.currentSurveyState === vm.surveyState.Provisional">Publish</button>
 </div>

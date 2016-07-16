@@ -4,6 +4,11 @@
     </div>
 
     <div ng-show="vm.survey">
+        <div ng-show="vm.check.isSuveyOpen()">
+            Closing on: {{vm.survey.closingTimestamp | date: 'M.d. H:m:s'}}
+            AccessToken: {{vm.survey.accessToken}}
+        </div>
+
         <div ng-if="vm.survey.title">
             <h2 class="survey-title">{{vm.survey.title}}</h2>
         </div>
