@@ -33,7 +33,6 @@
                     durationInMinutes: data.value
                 })
                 .then(function(survey) {
-                    console.log(survey);
                     fetchSurveyData();
                     $state.go('admin.survey.manage');
                 });
@@ -43,7 +42,6 @@
         function fetchSurveyData() {
             surveyService.get($stateParams.id)
             .then(function (survey) {
-                console.log(vm.surveyState);
                 vm.currentSurveyState = survey.state;
             });
         }

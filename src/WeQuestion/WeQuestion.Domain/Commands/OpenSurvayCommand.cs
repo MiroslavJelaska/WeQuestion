@@ -25,6 +25,7 @@ namespace WeQuestion.Domain.Commands
             var surveyRecord = _dbContext.Surveys.Find(publishSurvay.Id);
             surveyRecord.State = SurvayState.Open;
             surveyRecord.ClosingTimestamp = DateTimeOffset.UtcNow.AddMinutes(publishSurvay.DurationInMinutes);
+            surveyRecord.DurationInMinutes = publishSurvay.DurationInMinutes;
             surveyRecord.AccessToken = _accessTokenGenerator.Generate();
 
             _dbContext.SaveChanges();

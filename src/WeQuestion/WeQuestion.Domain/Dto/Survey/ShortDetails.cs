@@ -11,7 +11,7 @@ namespace WeQuestion.Domain.Dto.Survey
         public SurvayState State { get; set; }
 
         public DateTimeOffset? ClosingTimestamp { get; set; }
-
+        public int DurationInMinutes { get; set; }
         public string AccessToken { get; set; }
     }
 }

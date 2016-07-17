@@ -29,7 +29,6 @@
             vm.saveInProgress = true;
             surveyService.update(vm.newSurvey)
             .then(x => {
-                 console.log(x);
                  vm.saveInProgress = false;
             });
         }
@@ -57,14 +56,12 @@
         }
 
         function remove(node) {
-            console.log(11);
             node.remove();
         }
 
         (function init() {
             surveyService.get(surveyId)
             .then(function (survey) {
-                console.log(survey);
                 vm.newSurvey = survey;
             });
         })();

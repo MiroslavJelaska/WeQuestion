@@ -22,8 +22,7 @@
         }
 
         function submit() {
-            surveyService.create(vm.newSurvey)
-            .then(x => console.log(x));
+            surveyService.create(vm.newSurvey);
         }
 
         function addQuestion() {

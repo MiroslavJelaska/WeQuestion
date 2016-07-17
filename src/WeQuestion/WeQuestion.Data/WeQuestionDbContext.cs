@@ -109,12 +109,14 @@ namespace WeQuestion.Data
                         State = SurvayState.Open,
                         Title = "Test poll #2",
                         ClosingTimestamp = DateTimeOffset.UtcNow.AddMinutes(15),
+                        DurationInMinutes = 15,
                         Questions = questions,
                     },
                     new Survey()
                     {
                         AccessToken = "WoodSwitch",
                         State = SurvayState.Closed,
+                        DurationInMinutes = 15,
                         Title = "Test poll #3"
                     }
                 }.ToList().ForEach(newPoll => context.Surveys.Add(newPoll));

@@ -185,6 +185,8 @@
     <Content Include="Scripts\app\app.config.js" />
     <Content Include="Scripts\app\app.module.js" />
     <Content Include="Scripts\app\common\constants\surveyState.js" />
+    <Content Include="Scripts\app\common\directives\closingCountdown.js" />
+    <Content Include="Scripts\app\common\filters\durationLabel.js" />
     <Content Include="Scripts\app\common\filters\numberToLetter.js" />
     <Content Include="Scripts\app\common\services\surveyService.js" />
     <Content Include="Scripts\libs\angular-ui-tree\angular-ui-tree.css" />

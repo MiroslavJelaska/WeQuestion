@@ -21,10 +21,11 @@ namespace WeQuestion.Web
                 "~/Scripts/app/common/constants/surveyState.js",
 
                 "~/Scripts/app/common/filters/numberToLetter.js",
+                "~/Scripts/app/common/filters/durationLabel.js",
 
                 "~/Scripts/app/common/services/surveyService.js",
 
-                "~/Scripts/app/common/directives/editSurveyQuestion.js",
+                "~/Scripts/app/common/directives/closingCountdown.js",
 
                 "~/Scripts/app/admin/state.js",
                 "~/Scripts/app/admin/create.controller.js",

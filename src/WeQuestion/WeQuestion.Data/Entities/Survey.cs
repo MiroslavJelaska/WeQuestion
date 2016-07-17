@@ -15,7 +15,7 @@ namespace WeQuestion.Data.Entities
         public SurvayState State { get; set; }
 
         public DateTimeOffset? ClosingTimestamp { get; set; }
-
+        public int             DurationInMinutes { get; set; }
         public string AccessToken { get; set; }
 
         public virtual ICollection<Question> Questions { get; set; }

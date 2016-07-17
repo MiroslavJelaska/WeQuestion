@@ -16,6 +16,7 @@ namespace WeQuestion.Domain.Mappers
                     Title            = survey.Title,
                     AccessToken      = survey.AccessToken,
                     ClosingTimestamp = survey.ClosingTimestamp,
+                    DurationInMinutes = survey.DurationInMinutes,
                     State            = survey.State
                 };
             }
@@ -31,6 +32,7 @@ namespace WeQuestion.Domain.Mappers
                     Title            = survey.Title,
                     AccessToken      = survey.AccessToken,
                     ClosingTimestamp = survey.ClosingTimestamp,
+                    DurationInMinutes =  survey.DurationInMinutes,
                     Questions        = survey.Questions.Select(QustionMapper.Map).ToList(),
                     State            = survey.State
                 };
