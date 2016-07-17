@@ -13,11 +13,13 @@
         }
 
         surveyService.get(surveyId)
-        .then(survey => vm.survey = survey);
+        .then(survey => {
+            vm.survey = survey;
+        });
 
         function isSuveyOpen() {
             if (vm.survey && vm.survey.closingTimestamp && vm.survey.accessToken)
-                return vm.survey.closingTimestamp > new Date();
+                return moment(vm.survey.closingTimestamp) > moment();
             return false;
         }
     }

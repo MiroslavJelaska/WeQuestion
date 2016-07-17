@@ -10,7 +10,8 @@
 
         <div ng-show="vm.check.isSuveyOpen()">
             Closing on: {{vm.survey.closingTimestamp | date: 'M.d. H:m:s'}}
-            AccessToken: {{vm.survey.accessToken}}
+            <br/>
+            Access link: <span>http://localhost:16871/q/{{vm.survey.accessToken}}</span>
         </div>
     </div>
 
