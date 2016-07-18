@@ -42,6 +42,7 @@
         function fetchSurveyData() {
             surveyService.get($stateParams.id)
             .then(function (survey) {
+                console.log(survey);
                 vm.currentSurveyState = survey.state;
             });
         }

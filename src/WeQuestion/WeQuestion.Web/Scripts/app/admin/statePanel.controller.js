@@ -9,7 +9,7 @@
 
         vm.currentState = $state.current.data.currentSurveyState;
         vm.surveyState = surveyState;
-        
+        console.log(vm.currentState);
         surveyService.getAll(vm.currentState)
         .then(function (allsurveys) {
             vm.surveys = allsurveys;

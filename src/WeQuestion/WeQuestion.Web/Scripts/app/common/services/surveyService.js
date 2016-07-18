@@ -40,7 +40,7 @@
 
         function open(updatedSurvay) {
             return $http
-            .post(baseUri + '/' + updatedSurvay.id + '/open', updatedSurvay)
+            .post(baseUri + '/' + updatedSurvay.id + '/publish', updatedSurvay)
             .then(result => result.data);
         }
 

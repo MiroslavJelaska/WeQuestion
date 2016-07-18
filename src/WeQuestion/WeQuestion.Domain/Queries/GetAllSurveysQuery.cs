@@ -19,9 +19,17 @@ namespace WeQuestion.Domain.Queries
 
         private readonly WeQuestionDbContext _dbContext;
 
-        public IReadOnlyCollection<dto::Survey.ShortDetails> Execute(SurvayState? state = null)
+        public IReadOnlyCollection<dto::Survey.ShortDetails> Execute(dto.SurvayState? state = null)
         {
-            Expression<Func<Survey, bool>> filterByState =survey => survey.State == state.Value;
+            Expression<Func<Survey, bool>> filterByState = survey =>
+                survey.State == SurvayState.Provisional && 
+                    state.Value == dto.SurvayState.Provisional
+                || 
+                survey.State == SurvayState.Published && (
+                    ((!survey.ClosingTimestamp.HasValue || survey.ClosingTimestamp.Value < DateTime.UtcNow) && state.Value == dto.SurvayState.Closed) ||
+                    (survey.ClosingTimestamp.HasValue && DateTime.UtcNow < survey.ClosingTimestamp.Value && state.Value == dto.SurvayState.Open)
+                );
+
             Expression<Func<Survey, bool>> ignoreStateFilter = survey => true;
             var stateFilter = state.HasValue ? filterByState : ignoreStateFilter;
 

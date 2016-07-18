@@ -3,8 +3,8 @@
 
     angular.module('app').directive('closingCountdown', closingCountdown);
 
-    closingCountdown.$inject = ['$q', '$http', '$interval', '$interpolate'];
-    function closingCountdown($q, $http, $interval, $interpolate)
+    closingCountdown.$inject = ['$q', '$http', '$interval'];
+    function closingCountdown($q, $http, $interval)
     {
         return {
             restrict: 'E',

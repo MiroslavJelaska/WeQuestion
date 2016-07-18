@@ -1,6 +1,6 @@
 namespace WeQuestion.Domain.Dto.Survey
 {
-    public class Open
+    public class Publish
     {
         public int Id { get; set; }
         public int DurationInMinutes { get; set; }

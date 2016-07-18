@@ -7,9 +7,9 @@ using dto = WeQuestion.Domain.Dto;
 
 namespace WeQuestion.Domain.Commands
 {
-    public class OpenSurveyCommand
+    public class PublishSurveyCommand
     {
-        public OpenSurveyCommand(
+        public PublishSurveyCommand(
             AccessTokenGenerator accessTokenGenerator,
             WeQuestionDbContext dbContext)
         {
@@ -20,10 +20,10 @@ namespace WeQuestion.Domain.Commands
         private readonly AccessTokenGenerator _accessTokenGenerator;
         private readonly WeQuestionDbContext _dbContext;
 
-        public dto::Survey.ShortDetails Execute(dto::Survey.Open publishSurvay)
+        public dto::Survey.ShortDetails Execute(dto::Survey.Publish publishSurvay)
         {
             var surveyRecord = _dbContext.Surveys.Find(publishSurvay.Id);
-            surveyRecord.State = SurvayState.Open;
+            surveyRecord.State = SurvayState.Published;
             surveyRecord.ClosingTimestamp = DateTimeOffset.UtcNow.AddMinutes(publishSurvay.DurationInMinutes);
             surveyRecord.DurationInMinutes = publishSurvay.DurationInMinutes;
             surveyRecord.AccessToken = _accessTokenGenerator.Generate();

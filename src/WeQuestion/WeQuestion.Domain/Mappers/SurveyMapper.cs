@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using data = WeQuestion.Data.Entities;
 using dto = WeQuestion.Domain.Dto;
 
@@ -17,7 +18,7 @@ namespace WeQuestion.Domain.Mappers
                     AccessToken      = survey.AccessToken,
                     ClosingTimestamp = survey.ClosingTimestamp,
                     DurationInMinutes = survey.DurationInMinutes,
-                    State            = survey.State
+                    State            = MapSurveyState(survey)
                 };
             }
         }
@@ -34,9 +35,18 @@ namespace WeQuestion.Domain.Mappers
                     ClosingTimestamp = survey.ClosingTimestamp,
                     DurationInMinutes =  survey.DurationInMinutes,
                     Questions        = survey.Questions.Select(QustionMapper.Map).ToList(),
-                    State            = survey.State
+                    State            = MapSurveyState(survey)
                 };
             }
+        }
+
+        private static dto.SurvayState MapSurveyState(data::Survey survey)
+        {
+            if(survey.State == data.SurvayState.Provisional)
+                return dto.SurvayState.Provisional;
+            if (survey.ClosingTimestamp.HasValue && DateTimeOffset.UtcNow < survey.ClosingTimestamp.Value)
+                return dto.SurvayState.Open;
+            return dto.SurvayState.Closed;
         }
     }
 }

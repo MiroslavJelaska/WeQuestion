@@ -15,24 +15,24 @@ namespace WeQuestion.Web.Controllers
             GetSurveyQuery      getSurveyQuery,
             CreateSurvayCommand createSurvayCommand,
             UpdateSurvayCommand updateSurvayCommand,
-            OpenSurveyCommand openSurveyCommand)
+            PublishSurveyCommand publishSurveyCommand)
         {
             _getAllSurveysQuery  = getAllSurveysQuery;
             _getSurveysQuery     = getSurveyQuery;
             _createSurvayCommand = createSurvayCommand;
             _updateSurvayCommand = updateSurvayCommand;
-            _openSurveyCommand   = openSurveyCommand;
+            _publishSurveyCommand   = publishSurveyCommand;
         }
 
         private readonly GetAllSurveysQuery  _getAllSurveysQuery;
         private readonly GetSurveyQuery      _getSurveysQuery;
         private readonly CreateSurvayCommand _createSurvayCommand;
         private readonly UpdateSurvayCommand _updateSurvayCommand;
-        private readonly OpenSurveyCommand   _openSurveyCommand;
+        private readonly PublishSurveyCommand   _publishSurveyCommand;
 
         [HttpGet]
         [Route("")]
-        public IEnumerable<dto::Survey.ShortDetails> All(SurvayState? state)
+        public IEnumerable<dto::Survey.ShortDetails> All(dto.SurvayState? state)
         {
             return _getAllSurveysQuery.Execute(state);
         }
@@ -59,10 +59,10 @@ namespace WeQuestion.Web.Controllers
         }
 
         [HttpPost]
-        [Route("{id:int}/open")]
-        public dto::Survey.ShortDetails Open(dto::Survey.Open openSurvay)
+        [Route("{id:int}/publish")]
+        public dto::Survey.ShortDetails Publish(dto::Survey.Publish publishSurvay)
         {
-            return _openSurveyCommand.Execute(openSurvay);
+            return _publishSurveyCommand.Execute(publishSurvay);
         }
     }
 }

@@ -106,7 +106,7 @@ namespace WeQuestion.Data
                     new Survey()
                     {
                         AccessToken = "GlassBird",
-                        State = SurvayState.Open,
+                        State = SurvayState.Published,
                         Title = "Test poll #2",
                         ClosingTimestamp = DateTimeOffset.UtcNow.AddMinutes(15),
                         DurationInMinutes = 15,
@@ -115,7 +115,7 @@ namespace WeQuestion.Data
                     new Survey()
                     {
                         AccessToken = "WoodSwitch",
-                        State = SurvayState.Closed,
+                        State = SurvayState.Published,
                         DurationInMinutes = 15,
                         Title = "Test poll #3"
                     }
