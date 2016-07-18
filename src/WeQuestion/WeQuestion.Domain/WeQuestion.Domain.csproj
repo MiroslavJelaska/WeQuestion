@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\PublishSurvayCommand.cs" />
+    <Compile Include="Commands\CloseSurvayCommand.cs" />
     <Compile Include="Commands\UpdateSurvayCommand.cs" />
     <Compile Include="Commands\CreateSurvayCommand.cs" />
     <Compile Include="Dto\Option\Create.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Dto\Question\Details.cs" />
     <Compile Include="Dto\Question\Create.cs" />
     <Compile Include="Dto\SurveyState.cs" />
+    <Compile Include="Dto\Survey\Close.cs" />
     <Compile Include="Dto\Survey\Publish.cs" />
     <Compile Include="Dto\Survey\Update.cs" />
     <Compile Include="Dto\Survey\Create.cs" />

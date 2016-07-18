@@ -11,7 +11,8 @@
         vm.surveyState = surveyState;
 
         vm.action = {
-            publish: publish
+            publish: publish,
+            close: close
         }
 
         $scope.duration = 5;
@@ -36,6 +37,13 @@
                     fetchSurveyData();
                     $state.go('admin.survey.manage');
                 });
+            });
+        }
+
+        function close() {
+            surveyService.close(vm.surveyId)
+            .then(function() {
+                console.log("closed");
             });
         }
 

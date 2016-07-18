@@ -44,12 +44,19 @@
             .then(result => result.data);
         }
 
+        function close(closeSurvayId) {
+            return $http
+            .post(baseUri + '/' + closeSurvayId + '/close')
+            .then(result => result.data);
+        }
+
         return {
             getAll: getAll,
             get:    get,
             create: create,
             update: update,
-            open:   open
+            open:   open,
+            close:  close
         }
     }
 })();
