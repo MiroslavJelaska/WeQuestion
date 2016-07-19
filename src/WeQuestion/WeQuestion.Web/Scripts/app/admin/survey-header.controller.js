@@ -9,7 +9,6 @@
         vm.surveyId = $stateParams.id;
         vm.stateName = $state.current.name;
         vm.surveyState = surveyState;
-        console.log(vm.surveyState);
         vm.action = {
             publish: publish,
             close: close,
@@ -21,7 +20,6 @@
         fetchSurveyData();
 
         function closeWindow() {
-            console.log(closeWindow);
             if (closeWindowStateName) $state.go(closeWindowStateName);
             else $state.go('admin.provisional');
         }

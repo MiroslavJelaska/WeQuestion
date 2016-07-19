@@ -8,16 +8,16 @@
         <a> Preview </a>
         <div class="active-label" ng-if="vm.stateName === 'admin.survey'"></div>
     </div>
-    <div class="menu-option" ui-sref="admin.survey.edit()" ng-show="vm.currentSurveyState === vm.surveyState.provisional">
+    <div class="menu-option" ui-sref="admin.survey.edit()" ng-show="vm.currentSurveyState === vm.surveyState.Provisional">
         <a> Edit </a>
         <div class="active-label" ui-sref-active="active" ng-if="vm.stateName === 'admin.survey.edit'"></div>
     </div>
-    <div class="menu-option" ui-sref="admin.survey.manage()" ng-show="vm.currentSurveyState === vm.surveyState.open">
+    <div class="menu-option" ui-sref="admin.survey.manage()" ng-show="vm.currentSurveyState === vm.surveyState.Open">
         <a> Manage </a>
         <div class="active-label" ui-sref-active="active" ng-if="vm.stateName === 'admin.survey.manage'"></div>
     </div>
 </div>
 <div class="actions">
-    <button class="button button-green" ng-click="vm.action.publish()" ng-show="vm.currentSurveyState === vm.surveyState.provisional">Publish</button>
-    <button class="button button-green" ng-click="vm.action.close()" ng-show="vm.currentSurveyState === vm.surveyState.open">Close</button>
+    <button class="button button-green" ng-click="vm.action.publish()" ng-show="vm.currentSurveyState === vm.surveyState.Provisional">Publish</button>
+    <button class="button button-green" ng-click="vm.action.close()" ng-show="vm.currentSurveyState === vm.surveyState.Open">Close</button>
 </div>

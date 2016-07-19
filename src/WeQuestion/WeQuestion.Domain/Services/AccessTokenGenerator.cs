@@ -33,7 +33,7 @@ namespace WeQuestion.Domain.Services
 
         private string GetRandomNoun()
         {
-            return _mostFrequentNouns[_random.Next(_mostFrequentNouns.Capacity)];
+            return _mostFrequentNouns[_random.Next(_mostFrequentNouns.Count)];
         }
     }
 }
