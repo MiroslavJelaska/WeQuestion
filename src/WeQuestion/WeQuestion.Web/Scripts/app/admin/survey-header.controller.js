@@ -9,15 +9,22 @@
         vm.surveyId = $stateParams.id;
         vm.stateName = $state.current.name;
         vm.surveyState = surveyState;
-
+        console.log(vm.surveyState);
         vm.action = {
             publish: publish,
-            close: close
+            close: close,
+            closeWindow: closeWindow
         }
-
+        var closeWindowStateName = null;
         $scope.duration = 5;
 
         fetchSurveyData();
+
+        function closeWindow() {
+            console.log(closeWindow);
+            if (closeWindowStateName) $state.go(closeWindowStateName);
+            else $state.go('admin.provisional');
+        }
 
         function publish() {
             var dialog = ngDialog.open({
@@ -43,15 +50,14 @@
         function close() {
             surveyService.close(vm.surveyId)
             .then(function() {
-                console.log("closed");
             });
         }
 
         function fetchSurveyData() {
             surveyService.get($stateParams.id)
             .then(function (survey) {
-                console.log(survey);
                 vm.currentSurveyState = survey.state;
+                closeWindowStateName = 'admin.' + surveyState[survey.state];
             });
         }
     }
