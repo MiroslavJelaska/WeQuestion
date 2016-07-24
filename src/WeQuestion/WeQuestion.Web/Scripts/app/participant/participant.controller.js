@@ -25,7 +25,6 @@
         }
 
         function uncheckOtherOptions(selectedOption) {
-        console.log(selectedOption);
             var question = _.find(vm.survey.questions, function (question) {
                 return _.find(question.options, function (option) {
                     return option.$$hashKey === selectedOption.$$hashKey;
