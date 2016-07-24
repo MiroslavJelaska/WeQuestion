@@ -1,4 +1,5 @@
-﻿using WeQuestion.Data;
+﻿using System.Linq;
+using WeQuestion.Data;
 using WeQuestion.Domain.Mappers;
 using dto = WeQuestion.Domain.Dto;
 
@@ -19,6 +20,13 @@ namespace WeQuestion.Domain.Queries
             return
                 SurveyMapper.LongDetails.Map(
                     _dbContext.Surveys.Find(id)
+                );
+        }
+        public dto::Survey.LongDetails Execute(string accessToken)
+        {
+            return
+                SurveyMapper.LongDetails.Map(
+                    _dbContext.Surveys.Single(x => x.AccessToken == accessToken)
                 );
         }
     }

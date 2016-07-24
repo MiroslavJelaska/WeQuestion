@@ -46,6 +46,13 @@ namespace WeQuestion.Web.Controllers
             return _getSurveysQuery.Execute(id);
         }
 
+        [HttpGet]
+        [Route("{accessToken}")]
+        public dto::Survey.LongDetails Get(string accessToken)
+        {
+            return _getSurveysQuery.Execute(accessToken);
+        }
+
         [HttpPost]
         [Route("")]
         public dto::Survey.ShortDetails Create(dto::Survey.Create createSurvey)
