@@ -7,6 +7,7 @@
     function adminSurveyController($state, $stateParams, surveyService) {
         var vm = this;
 
+
         const surveyId = $stateParams.id;
         vm.check = {
             isSuveyOpen: isSuveyOpen

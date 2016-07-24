@@ -12,6 +12,12 @@
             isSuveyOpen: isSuveyOpen
         }
 
+        vm.action = {
+            closed: function () {
+                $state.go('admin.survey');
+            }
+        }
+
         surveyService.get(surveyId)
         .then(survey => {
             vm.survey = survey;

@@ -22,7 +22,10 @@
         }
 
         function submit() {
-            surveyService.create(vm.newSurvey);
+            surveyService.create(vm.newSurvey).
+            then(function() {
+                $state.go('admin.provisional');
+            });
         }
 
         function addQuestion() {
