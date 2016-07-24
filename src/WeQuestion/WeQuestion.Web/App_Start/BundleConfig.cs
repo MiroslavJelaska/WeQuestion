@@ -40,7 +40,10 @@ namespace WeQuestion.Web
                 "~/Scripts/app/admin/statePanel.controller.js",
                 "~/Scripts/app/admin/stateOpen.state.js",
                 "~/Scripts/app/admin/stateClosed.state.js",
-                "~/Scripts/app/admin/stateProvisional.state.js"
+                "~/Scripts/app/admin/stateProvisional.state.js",
+
+                "~/Scripts/app/participant/participant.state.js",
+                "~/Scripts/app/participant/participant.controller.js"
             ));
         }
     }
