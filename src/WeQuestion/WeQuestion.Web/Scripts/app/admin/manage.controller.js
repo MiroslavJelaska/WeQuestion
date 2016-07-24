@@ -8,6 +8,7 @@
         var vm = this;
 
         const surveyId = $stateParams.id;
+
         vm.check = {
             isSuveyOpen: isSuveyOpen
         }
@@ -21,6 +22,7 @@
         surveyService.get(surveyId)
         .then(survey => {
             vm.survey = survey;
+            vm.accessUrl = 'http://localhost:16871/q/' + vm.survey.accessToken;
         });
 
         function isSuveyOpen() {

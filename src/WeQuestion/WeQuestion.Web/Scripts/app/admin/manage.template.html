@@ -13,7 +13,7 @@
             <br/>
             <closing-countdown closing-time="vm.survey.closingTimestamp" total-time-in-minutes="vm.survey.durationInMinutes" on-closed="vm.action.closed()"></closing-countdown>
             <br/>
-            Access link: <span>http://localhost:16871/q/{{vm.survey.accessToken}}</span>
+            Access link: <span id="urlWithAccessToken">{{vm.accessUrl}}</span> <button clipboard text="vm.accessUrl">To clipboard</button>
         </div>
     </div>
 
