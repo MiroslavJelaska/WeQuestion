@@ -8,7 +8,38 @@
             Questionary closed
         </div>
         <div ng-show="vm.check.isSuveyOpen()">
-            Fill in the survery
+            <form ng-show="vm.survey">
+                {{vm.survey.title}}
+
+                <br />
+
+                <div>
+                    <ol>
+                        <li ng-repeat="question in vm.survey.questions">
+                            <div class="question">
+                                <div class="question-index-container">
+                                    <span class="question-index">{{$index + 1}}</span>
+                                </div>
+                                <div class="question-text">
+                                    {{question.text}}
+                                </div>
+                            </div>
+                            <ol class="options">
+                                <li ng-repeat="option in question.options" class="option">
+                                    <div>
+                                        <span class="option-index">{{$index | numberToLetter}}</span>
+                                        {{option.text}}
+                                        <input type="radio" ng-model="option.isSelected" ng-value="true" ng-click="vm.action.uncheckOtherOptions(option)">
+                                    </div>
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                </div>
+
+                <button type="submit" ng-click="vm.action.submit()" class="button button-green">Submit</button>
+                <span ng-if="vm.saveInProgress">Saving...</span>
+            </form>
         </div>
     </div>
 </div>

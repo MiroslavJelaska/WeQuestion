@@ -9,7 +9,10 @@
         .state('participant', {
             url: '/q/{id:string}',
             views: {
-                 'content': {
+                'menu': {
+                    template: null
+                },
+                'content': {
                      templateUrl: '/Scripts/app/participant/participant.template.html',
                      controller: 'ParticipantController',
                      controllerAs: 'vm'
