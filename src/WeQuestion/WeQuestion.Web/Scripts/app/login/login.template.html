@@ -1,0 +1,11 @@
+﻿<div>
+    Dev login
+
+    <div ng-show="vm.authDetails">
+        You're currently logedin as anonymous.
+        <button ng-click="vm.action.logout()">Logout</button>
+    </div>
+    <div ng-hide="vm.authDetails">
+        <button ng-click="vm.action.login('mcagalj@fesb.hr', 'fesb')">Mario Čagalj</button>
+    </div>
+</div>

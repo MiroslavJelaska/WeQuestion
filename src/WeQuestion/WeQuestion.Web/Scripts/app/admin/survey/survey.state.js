@@ -15,7 +15,7 @@
                      controllerAs: 'vm'
                  },
                  'content@admin': {
-                     templateUrl: '/Scripts/app/admin/common/survey.template.html',
+                     templateUrl: '/Scripts/app/admin/survey/survey.template.html',
                      controller: 'adminSurveyController',
                      controllerAs: 'vm'
                  }

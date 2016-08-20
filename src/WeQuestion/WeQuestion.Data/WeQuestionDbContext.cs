@@ -15,6 +15,7 @@ namespace WeQuestion.Data
             Database.SetInitializer(initializer);
         }
 
+        public IDbSet<User> Users { get; set; }
         public IDbSet<ProvisionalUser> ProvisionalUsers { get; set; }
         public IDbSet<SurveyParticipation> SurveyParticipations { get; set; }
         public IDbSet<UsersAnswer> UsersAnswers { get; set; }
@@ -35,13 +36,18 @@ namespace WeQuestion.Data
 
             protected override void Seed(WeQuestionDbContext context)
             {
+                var user = new User()
+                {
+                    Email = "mcagalj@fesb.hr",
+                    Password = "$2a$12$lU5HHjOkcHvR7BobZDyIKe7uKExeGxMDzZZEEh6YsASw7Bmy/pcDK", //fesb
+                    Surveys = new List<Survey>()
+                };
 
                 var questions = new List<Question>()
                 {
                     new Question()
                     {
-                        Text =
-                            "This is an encryption/decryption key known only to the party or parties that exchange secret messages.",
+                        Text = "This is an encryption/decryption key known only to the party or parties that exchange secret messages.",
                         AnswerOptions = new List<AnswerOption>()
                         {
                             new AnswerOption() {Text = "e-signature"},
@@ -119,7 +125,9 @@ namespace WeQuestion.Data
                         DurationInMinutes = 15,
                         Title = "Test poll #3"
                     }
-                }.ToList().ForEach(newPoll => context.Surveys.Add(newPoll));
+                }.ToList().ForEach(newPoll => user.Surveys.Add(newPoll));
+
+                context.Users.Add(user);
 
                 context.SaveChanges();
             }
