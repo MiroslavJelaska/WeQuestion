@@ -14,7 +14,7 @@
             views: {
                 'menu@admin': {
                     templateUrl: '/Scripts/app/admin/common/statePanel-header.template.html',
-                    controller: Menu,
+                    controller: 'statePanelHeaderController',
                     controllerAs: 'vm'
                 },
                 'content@admin': {
@@ -24,12 +24,5 @@
                 }
             }
         });
-
-        Menu.$inject = ['$stateParams', '$state'];
-        function Menu($stateParams, $state) {
-            var vm = this;
-            vm.surveyId = $stateParams.id;
-            vm.stateName = $state.current.name;
-        }
     }
 })();

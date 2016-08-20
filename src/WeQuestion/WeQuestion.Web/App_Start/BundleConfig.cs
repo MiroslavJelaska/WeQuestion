@@ -17,7 +17,7 @@ namespace WeQuestion.Web
             bundles.Add(new StyleBundle("~/bundles/app")
             .Include(
                 "~/Scripts/app/app.module.js",
-                "~/Scripts/app/app.config.js",
+                "~/Scripts/app/app.config.js", 
 
                 "~/Scripts/app/common/constants/surveyState.js",
                 "~/Scripts/app/common/constants/roleType.js",
@@ -33,6 +33,7 @@ namespace WeQuestion.Web
                 "~/Scripts/app/common/directives/closingCountdown.js",
 
                 "~/Scripts/app/admin/common/survey-header.controller.js",
+                "~/Scripts/app/admin/common/statePanel-header.controller.js",
                 "~/Scripts/app/admin/admin.state.js",
                 "~/Scripts/app/admin/createOrEdit/create.controller.js",
                 "~/Scripts/app/admin/createOrEdit/create.state.js",

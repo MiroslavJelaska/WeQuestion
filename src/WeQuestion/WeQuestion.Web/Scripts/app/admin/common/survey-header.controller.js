@@ -3,8 +3,8 @@
 
     angular.module('app').controller('surveyHeaderController', surveyHeaderController);
 
-    surveyHeaderController.$inject = ['$stateParams', '$state', '$scope', 'ngDialog', 'surveyService', 'surveyState'];
-    function surveyHeaderController($stateParams, $state, $scope, ngDialog, surveyService, surveyState) {
+    surveyHeaderController.$inject = ['$stateParams', '$state', '$scope', 'ngDialog', 'surveyService', 'surveyState', 'authorizationService'];
+    function surveyHeaderController($stateParams, $state, $scope, ngDialog, surveyService, surveyState, authorizationService) {
         var vm = this;
         vm.surveyId = $stateParams.id;
         vm.stateName = $state.current.name;
@@ -12,12 +12,19 @@
         vm.action = {
             publish: publish,
             close: close,
-            closeWindow: closeWindow
+            closeWindow: closeWindow,
+            logout: logout
         }
         var closeWindowStateName = null;
         $scope.duration = 5;
 
         fetchSurveyData();
+
+
+        function logout() {
+            authorizationService.logout();
+            $state.go('login');
+        }
 
         function closeWindow() {
             if (closeWindowStateName) $state.go(closeWindowStateName);

@@ -3,8 +3,8 @@
 
     angular.module('app').controller('adminSurveyController', adminSurveyController);
 
-    adminSurveyController.$inject = ['$state', '$stateParams', 'surveyService'];
-    function adminSurveyController($state, $stateParams, surveyService) {
+    adminSurveyController.$inject = ['$state', '$stateParams', 'surveyService', 'authorizationService'];
+    function adminSurveyController($state, $stateParams, surveyService, authorizationService) {
         var vm = this;
 
 

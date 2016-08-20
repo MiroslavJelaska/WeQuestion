@@ -21,3 +21,7 @@
     <button class="button button-green" ng-click="vm.action.publish()" ng-show="vm.currentSurveyState === vm.surveyState.Provisional">Publish</button>
     <button class="button button-green" ng-click="vm.action.close()" ng-show="vm.currentSurveyState === vm.surveyState.Open">Close</button>
 </div>
+
+<div class="logout" ng-click="vm.action.logout()">
+    <i class="fa fa-sign-out" aria-hidden="true"></i>
+</div>

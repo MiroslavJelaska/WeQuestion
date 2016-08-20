@@ -176,6 +176,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
+    <Content Include="Scripts\app\admin\common\statePanel-header.controller.js" />
     <Content Include="Scripts\app\common\constants\roleType.js" />
     <Content Include="Scripts\app\login\login.controller.js" />
     <Content Include="Scripts\app\login\login.state.js" />
