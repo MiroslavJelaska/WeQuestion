@@ -10,6 +10,6 @@ namespace WeQuestion.Domain.Dto.Survey
 
         //public IReadOnlyCollection<dto::UserAnswer.Details> Answers { get; set; }
 
-        //public ProvisionalUser ProvisionalUser { get; set; }
+        public Guid ProvisionalUserId { get; set; }
     }
 }

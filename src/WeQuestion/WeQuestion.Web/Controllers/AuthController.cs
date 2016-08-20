@@ -59,7 +59,7 @@ namespace WeQuestion.Web.Controllers
             {
                 { "role", ((int)UserRoleType.Anonymous).ToString() },
                 { "iat", timestamp.ToString() },
-                { "id", new Guid().ToString() }
+                { "id", Guid.NewGuid().ToString() }
             };
 
             var token = JWT.Encode(payload, ConfigReader.AuthSecretKeyByteArray, JwsAlgorithm.HS256);

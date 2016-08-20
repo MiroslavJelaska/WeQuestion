@@ -32,6 +32,7 @@ namespace WeQuestion.Web.Controllers
         [Route("")]
         public IHttpActionResult Participate([FromBody] dto.Survey.Participation participation)
         {
+            participation.ProvisionalUserId = AuthDetails.Id;
             _participateSurveyCommand.Execute(participation);
             return Ok();
         }
