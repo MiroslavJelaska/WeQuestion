@@ -10,12 +10,12 @@
             url: '/edit',
             views: {
                 'menu@admin': {
-                    templateUrl: '/Scripts/app/admin/survey-header.template.html',
+                    templateUrl: '/Scripts/app/admin/common/survey-header.template.html',
                     controller: 'surveyHeaderController',
                     controllerAs: 'vm'
                 },
                 'content@admin': {
-                    templateUrl: '/Scripts/app/admin/editor.template.html',
+                    templateUrl: '/Scripts/app/admin/createOrEdit/editor.template.html',
                     controller: 'adminEditController',
                     controllerAs: 'vm'
                 }

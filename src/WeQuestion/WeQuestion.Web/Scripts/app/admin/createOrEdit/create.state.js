@@ -6,17 +6,15 @@
     AdminCreateStateConfig.$inject = ['$stateProvider'];
     function AdminCreateStateConfig($stateProvider) {
         $stateProvider
-        .state('admin.survey.manage', {
-            url: '/manage',
+        .state('admin.create', {
+            url: '/create',
             views: {
                 'menu@admin': {
-                    templateUrl: '/Scripts/app/admin/survey-header.template.html',
-                    controller: 'surveyHeaderController',
-                    controllerAs: 'vm'
+                    template: '<div class="close" ui-sref="admin.provisional"><div class="inner"><a>✕</a></div></div>'
                 },
                 'content@admin': {
-                    templateUrl: '/Scripts/app/admin/manage.template.html',
-                    controller: 'adminManageController',
+                    templateUrl: '/Scripts/app/admin/createOrEdit/editor.template.html',
+                    controller: 'adminCreateController',
                     controllerAs: 'vm'
                 }
             }

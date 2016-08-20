@@ -69,8 +69,16 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -156,32 +164,33 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
-    <Content Include="Scripts\app\admin\manage.controller.js" />
-    <Content Include="Scripts\app\admin\manage.state.js" />
-    <Content Include="Scripts\app\admin\edit.controller.js" />
-    <Content Include="Scripts\app\admin\edit.state.js" />
+    <Content Include="Scripts\app\admin\manage\manage.controller.js" />
+    <Content Include="Scripts\app\admin\manage\manage.state.js" />
+    <Content Include="Scripts\app\admin\createOrEdit\edit.controller.js" />
+    <Content Include="Scripts\app\admin\createOrEdit\edit.state.js" />
     <Content Include="Scripts\app\admin\popups\publish.template.html" />
-    <Content Include="Scripts\app\admin\statePanel-header.template.html" />
-    <Content Include="Scripts\app\admin\survey-header.controller.js" />
-    <Content Include="Scripts\app\admin\survey.controller.js" />
-    <Content Include="Scripts\app\admin\create.controller.js" />
-    <Content Include="Scripts\app\admin\survey.state.js" />
-    <Content Include="Scripts\app\admin\survey-header.template.html" />
-    <Content Include="Scripts\app\admin\manage.template.html" />
-    <Content Include="Scripts\app\admin\survey.template.html" />
-    <Content Include="Scripts\app\admin\stateClosed.state.js" />
-    <Content Include="Scripts\app\admin\create.state.js" />
-    <Content Include="Scripts\app\admin\state.js" />
-    <Content Include="Scripts\app\admin\stateOpen.state.js" />
-    <Content Include="Scripts\app\admin\stateProvisional.state.js" />
-    <Content Include="Scripts\app\admin\editor.template.html" />
-    <Content Include="Scripts\app\admin\statePanel.template.html" />
-    <Content Include="Scripts\app\admin\statePanel.controller.js" />
+    <Content Include="Scripts\app\admin\common\statePanel-header.template.html" />
+    <Content Include="Scripts\app\admin\common\survey-header.controller.js" />
+    <Content Include="Scripts\app\admin\survey\survey.controller.js" />
+    <Content Include="Scripts\app\admin\createOrEdit\create.controller.js" />
+    <Content Include="Scripts\app\admin\survey\survey.state.js" />
+    <Content Include="Scripts\app\admin\common\survey-header.template.html" />
+    <Content Include="Scripts\app\admin\manage\manage.template.html" />
+    <Content Include="Scripts\app\admin\survey\survey.template.html" />
+    <Content Include="Scripts\app\admin\statePanel\stateClosed.state.js" />
+    <Content Include="Scripts\app\admin\createOrEdit\create.state.js" />
+    <Content Include="Scripts\app\admin\admin.state.js" />
+    <Content Include="Scripts\app\admin\statePanel\stateOpen.state.js" />
+    <Content Include="Scripts\app\admin\statePanel\stateProvisional.state.js" />
+    <Content Include="Scripts\app\admin\createOrEdit\editor.template.html" />
+    <Content Include="Scripts\app\admin\statePanel\statePanel.template.html" />
+    <Content Include="Scripts\app\admin\statePanel\statePanel.controller.js" />
     <Content Include="Scripts\app\app.config.js" />
     <Content Include="Scripts\app\app.module.js" />
     <Content Include="Scripts\app\common\constants\surveyState.js" />
@@ -212,6 +221,10 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WeQuestion.Common\WeQuestion.Common.csproj">
+      <Project>{7B01D208-8EFD-42E9-9C60-891F677E1842}</Project>
+      <Name>WeQuestion.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WeQuestion.Data\WeQuestion.Data.csproj">
       <Project>{862CEA4C-39F3-4ECE-A95F-A3683310DACB}</Project>
       <Name>WeQuestion.Data</Name>
@@ -237,6 +250,9 @@
     <Content Include="App_Data\mostFrequentNouns.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="appsettings.json" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

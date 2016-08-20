@@ -1,31 +1,29 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('app').config(AdminClosedStateConfig);
+    angular.module('app').config(Admin_ProvisionalStateConfig);
 
-    AdminClosedStateConfig.$inject = ['$stateProvider', 'surveyState'];
-    function AdminClosedStateConfig($stateProvider, surveyState) {
-
+    Admin_ProvisionalStateConfig.$inject = ['$stateProvider', 'surveyState'];
+    function Admin_ProvisionalStateConfig($stateProvider, surveyState) {
         $stateProvider
-        .state('admin.closed', {
-            url: '/closed',
+        .state('admin.provisional', {
+            url: '/provisional',
             data: {
-                currentSurveyState: surveyState.Closed
+                currentSurveyState: surveyState.Provisional
             },
             views: {
                 'menu@admin': {
-                    templateUrl: '/Scripts/app/admin/statePanel-header.template.html',
+                    templateUrl: '/Scripts/app/admin/common/statePanel-header.template.html',
                     controller: Menu,
                     controllerAs: 'vm'
                 },
                 'content@admin': {
-                    templateUrl: '/Scripts/app/admin/statePanel.template.html',
+                    templateUrl: '/Scripts/app/admin/statePanel/statePanel.template.html',
                     controller: 'admin_StatePanelController',
                     controllerAs: 'vm'
                 }
             }
         });
-
 
         Menu.$inject = ['$stateParams', '$state'];
         function Menu($stateParams, $state) {

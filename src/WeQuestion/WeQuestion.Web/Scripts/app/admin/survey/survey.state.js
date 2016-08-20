@@ -10,12 +10,12 @@
             url: '/survey/{id:int}',
             views: {
                  'menu@admin': {
-                     templateUrl: '/Scripts/app/admin/survey-header.template.html',
+                     templateUrl: '/Scripts/app/admin/common/survey-header.template.html',
                      controller: 'surveyHeaderController',
                      controllerAs: 'vm'
                  },
                  'content@admin': {
-                     templateUrl: '/Scripts/app/admin/survey.template.html',
+                     templateUrl: '/Scripts/app/admin/common/survey.template.html',
                      controller: 'adminSurveyController',
                      controllerAs: 'vm'
                  }
