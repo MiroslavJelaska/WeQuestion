@@ -2,6 +2,7 @@
 {
     public enum UserRoleType
     {
-        Admin = 1
+        Admin = 1,
+        Anonymous = 2
     }
 }

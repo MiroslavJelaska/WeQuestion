@@ -7,7 +7,7 @@
     function Admin_ParticipantStateConfig($stateProvider) {
         $stateProvider
         .state('participant', {
-            url: '/q/{id:string}',
+            url: '/s/{id:string}',
             views: {
                 'menu': {
                     template: null
@@ -17,6 +17,14 @@
                      controller: 'ParticipantController',
                      controllerAs: 'vm'
                  }
+            },
+            onEnter: function ($state, authorizationService, roleType) {
+                var authDetails = authorizationService.getAuthDetails();
+
+                if (authDetails) {
+                    if (authDetails.role == roleType.Admin)
+                        $state.go('admin.open');
+                }
             }
         });
     }

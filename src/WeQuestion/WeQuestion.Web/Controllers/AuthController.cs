@@ -8,15 +8,11 @@ using System.Web.Http.Results;
 using Jose;
 using Newtonsoft.Json.Linq;
 using WeQuestion.Common;
+using WeQuestion.Common.Auth;
 using WeQuestion.Data;
 
 namespace WeQuestion.Web.Controllers
 {
-    enum RoleType
-    {
-        Admin = 1,
-        Anonymous = 2
-    }
     [RoutePrefix("api/auth")]
     public class AuthController : ApiController
     {
@@ -44,9 +40,8 @@ namespace WeQuestion.Web.Controllers
             var timestamp = DateTimeOffset.UtcNow.Ticks;
             var payload = new Dictionary<string, string>()
             {
-                { "role", ((int)RoleType.Admin).ToString() },
+                { "role", ((int)UserRoleType.Admin).ToString() },
                 { "iat", timestamp.ToString() },
-                { "email", user.Email },
                 { "id", user.Id.ToString() }
             };
 
@@ -62,7 +57,7 @@ namespace WeQuestion.Web.Controllers
             var timestamp = DateTimeOffset.UtcNow.Ticks;
             var payload = new Dictionary<string, string>()
             {
-                { "role", ((int)RoleType.Anonymous).ToString() },
+                { "role", ((int)UserRoleType.Anonymous).ToString() },
                 { "iat", timestamp.ToString() },
                 { "id", new Guid().ToString() }
             };

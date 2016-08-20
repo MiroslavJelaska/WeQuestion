@@ -3,20 +3,39 @@
 
     angular.module('app').controller('ParticipantController', ParticipantController);
 
-    ParticipantController.$inject = ['$state', '$stateParams', 'surveyService'];
-    function ParticipantController($state, $stateParams, surveyService) {
+    ParticipantController.$inject = ['$state', '$http', '$stateParams', 'surveyService', 'authorizationService'];
+    function ParticipantController($state, $http, $stateParams, surveyService, authorizationService) {
         var vm = this;
-
-        const surveyId = $stateParams.id;
+        vm.isLoading = true;
+        const surveyAccessToken = $stateParams.id;
         vm.check = {
             isSuveyOpen: isSuveyOpen
         }
         vm.action = {
-            uncheckOtherOptions: uncheckOtherOptions
+            uncheckOtherOptions: uncheckOtherOptions,
+            submit: submit
         }
         
-        surveyService.get(surveyId)
-        .then(survey => vm.survey = survey);
+        var authDetails = authorizationService.getAuthDetails();
+
+        if (!authDetails) {
+            authorizationService.loginAnonymously()
+            .then(function() {
+                console.log('loginAnonymously', authorizationService.getAuthDetails());
+                loadSurvey();
+            });
+        } else {
+            loadSurvey();
+        }
+
+        function loadSurvey() {
+            $http.get('api/participation/' + surveyAccessToken)
+            .then(function(result) {
+                console.log(result);
+                vm.survey = result.data;
+                vm.isLoading = false;
+             });
+        }
 
         function isSuveyOpen() {
             if (vm.survey && vm.survey.closingTimestamp && vm.survey.accessToken)
@@ -34,6 +53,18 @@
             _.each(question.options, function (option) {
                 if (option.$$hashKey !== selectedOption.$$hashKey)
                     option.isSelected = false;
+            });
+        }
+
+        function submit() {
+            var data = {
+                accessToken: surveyAccessToken
+            }
+            console.log(vm);
+
+            $http.post("api/participation/", data).
+            then(function(response) {
+                console.log(response);
             });
         }
     }

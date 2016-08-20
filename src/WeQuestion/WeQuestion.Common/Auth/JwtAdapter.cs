@@ -15,15 +15,11 @@ namespace WeQuestion.Common.Auth
 
             Role     = (UserRoleType) Enum.Parse(typeof (UserRoleType), payloadAsDictionary["role"]);
             Iat      = long.Parse(payloadAsDictionary["iat"]);
-            Fullname = payloadAsDictionary["fullname"];
-            Email    = payloadAsDictionary["email"];
-            Id       = int.Parse(payloadAsDictionary["id"]);
+            Id       = Guid.Parse(payloadAsDictionary["id"]);
         }
 
         public UserRoleType Role { get; }
         public long Iat { get; }
-        public string Fullname { get; }
-        public string Email { get; }
-        public int Id { get; }
+        public Guid Id { get; }
     }
 }

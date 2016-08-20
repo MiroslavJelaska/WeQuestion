@@ -14,6 +14,14 @@
             });
         }
 
+        function loginAnonymously() {
+            return $http.post('api/auth/login-anonymously').then(function (response) {
+                localStorage.setItem('bearerToken', response.data);
+                var decoded = jwt_decode(response.data);
+                localStorage.setItem('authDetails', JSON.stringify(decoded));
+            });
+        }
+
         function logout() {
             localStorage.removeItem('bearerToken');
             localStorage.removeItem('authDetails');
@@ -29,6 +37,7 @@
 
         return {
             login: login,
+            loginAnonymously: loginAnonymously,
             logout: logout,
             isAuthenticated: isAuthenticated,
             getAuthDetails: getAuthDetails

@@ -7,8 +7,6 @@ namespace WeQuestion.Data.Entities
         [Key]
         public int Id { get; set; }
 
-        public virtual AnswerOption AnswerOption { get; set; }
-
         public virtual Question Question { get; set; }
 
         public virtual SurveyParticipation SurveyParticipation { get; set; }

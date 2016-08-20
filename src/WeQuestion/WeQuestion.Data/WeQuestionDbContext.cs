@@ -68,7 +68,6 @@ namespace WeQuestion.Data
                         {
                            new UsersAnswer()
                            {
-                               AnswerOption = questions[0].AnswerOptions.ToList()[0],
                                Question = questions[0],
                            }
                         }

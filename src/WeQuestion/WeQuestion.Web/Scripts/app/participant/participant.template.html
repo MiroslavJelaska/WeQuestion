@@ -1,9 +1,9 @@
 ﻿<div>
-    <div ng-hide="vm.survey">
+    <div ng-show="vm.isLoading">
         Loading...
     </div>
 
-    <div ng-show="vm.survey">
+    <div ng-show="!vm.isLoading">
         <div ng-hide="vm.check.isSuveyOpen()">
             Questionary closed
         </div>
