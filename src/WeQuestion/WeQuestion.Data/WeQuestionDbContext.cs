@@ -43,38 +43,6 @@ namespace WeQuestion.Data
                     Surveys = new List<Survey>()
                 };
 
-                var questions = new List<Question>()
-                {
-                    new Question()
-                    {
-                        Text = "This is an encryption/decryption key known only to the party or parties that exchange secret messages.",
-                        AnswerOptions = new List<AnswerOption>()
-                        {
-                            new AnswerOption() {Text = "e-signature"},
-                            new AnswerOption() {Text = "digital certificate"},
-                            new AnswerOption() {Text = "private key", IsCorrect = true},
-                            new AnswerOption() {Text = "security token"}
-                        }
-                    }
-                };
-
-                var userParticipations = new List<SurveyParticipation>()
-                {
-                    new SurveyParticipation()
-                    {
-                        ProvisionalUser = new ProvisionalUser(),
-                        Comment = "Cool",
-                        UsersAnswers = new List<UsersAnswer>()
-                        {
-                           new UsersAnswer()
-                           {
-                               Question = questions[0],
-                           }
-                        }
-                    }
-                };
-                userParticipations.ForEach(participation => context.SurveyParticipations.Add(participation));
-
                 new[]
                 {
                     new Survey()
@@ -93,7 +61,8 @@ namespace WeQuestion.Data
                                     new AnswerOption() { Text = "digital certificate" },
                                     new AnswerOption() { Text = "private key", IsCorrect = true},
                                     new AnswerOption() { Text = "security token" }
-                                }
+                                },
+                                Index = 0
                             },
                             new Question()
                             {
@@ -104,7 +73,8 @@ namespace WeQuestion.Data
                                     new AnswerOption() { Text = "personalization" },
                                     new AnswerOption() { Text = "van Eck phreaking " },
                                     new AnswerOption() { Text = "one-time pad", IsCorrect = true }
-                                }
+                                },
+                                Index = 1
                             }
                         }
                     },
@@ -115,7 +85,53 @@ namespace WeQuestion.Data
                         Title = "Test poll #2",
                         ClosingTimestamp = DateTimeOffset.UtcNow.AddMinutes(15),
                         DurationInMinutes = 15,
-                        Questions = questions,
+                        Questions = new List<Question>()
+                        {
+                            new Question()
+                            {
+                                Text = "This is an encryption/decryption key known only to the party or parties that exchange secret messages.",
+                                AnswerOptions = new List<AnswerOption>()
+                                {
+                                    new AnswerOption() {Text = "e-signature"},
+                                    new AnswerOption() {Text = "digital certificate"},
+                                    new AnswerOption() {Text = "private key", IsCorrect = true},
+                                    new AnswerOption() {Text = "security token"}
+                                }
+                            },
+                            new Question()
+                            {
+                                Text = "Today, many Internet businesses and users take advantage of cryptography based on this approach.",
+                                AnswerOptions = new List<AnswerOption>()
+                                {
+                                    new AnswerOption() {Text = "public key infrastructure", IsCorrect = true},
+                                    new AnswerOption() {Text = "output feedback"},
+                                    new AnswerOption() {Text = "Encrypting File System " },
+                                    new AnswerOption() {Text = "single signon"}
+                                }
+                            },
+                            new Question()
+                            {
+                                Text = "This is the name for the issuer of a PKI certificate.",
+                                AnswerOptions = new List<AnswerOption>()
+                                {
+                                    new AnswerOption() {Text = "man in the middle", IsCorrect = true},
+                                    new AnswerOption() {Text = "certificate authority" },
+                                    new AnswerOption() {Text = "Resource Access Control Facility" },
+                                    new AnswerOption() {Text = "script kiddy"}
+                                }
+                            },
+                            new Question()
+                            {
+                                Text = "Developed by Philip R. Zimmermann, this is the most widely used privacy-ensuring program by individuals and is also used by many corporations.",
+                                AnswerOptions = new List<AnswerOption>()
+                                {
+                                    new AnswerOption() {Text = "DSS" },
+                                    new AnswerOption() {Text = "OCSP" },
+                                    new AnswerOption() {Text = "Secure HTTP" },
+                                    new AnswerOption() {Text = "Pretty Good Privacy", IsCorrect = true}
+                                }
+                            }
+                        }
                     },
                     new Survey()
                     {

@@ -37,34 +37,31 @@ namespace WeQuestion.Web.Controllers
             var areCredentialsValid = PasswordHashing.Validate(password, user.Password);
             if(!areCredentialsValid) return new ResponseMessageResult(Request.CreateResponse((HttpStatusCode)601));
 
-            var timestamp = DateTimeOffset.UtcNow.Ticks;
-            var payload = new Dictionary<string, string>()
-            {
-                { "role", ((int)UserRoleType.Admin).ToString() },
-                { "iat", timestamp.ToString() },
-                { "id", user.Id.ToString() }
-            };
+            var bearerToken = _generateJwt(UserRoleType.Admin, user.Id);
 
-            var token = JWT.Encode(payload, ConfigReader.AuthSecretKeyByteArray, JwsAlgorithm.HS256);
-
-            return Ok(token);
+            return Ok(bearerToken);
         }
 
         [HttpPost]
         [Route("login-anonymously")]
         public IHttpActionResult LoginAnonymously()
         {
+            var bearerToken = _generateJwt(UserRoleType.Anonymous, Guid.NewGuid());
+
+            return Ok(bearerToken);
+        }
+
+        private static string _generateJwt(UserRoleType role, Guid id)
+        {
             var timestamp = DateTimeOffset.UtcNow.Ticks;
             var payload = new Dictionary<string, string>()
             {
-                { "role", ((int)UserRoleType.Anonymous).ToString() },
+                { "role", ((int)role).ToString() },
                 { "iat", timestamp.ToString() },
-                { "id", Guid.NewGuid().ToString() }
+                { "id", id.ToString("D") }
             };
 
-            var token = JWT.Encode(payload, ConfigReader.AuthSecretKeyByteArray, JwsAlgorithm.HS256);
-
-            return Ok(token);
+            return JWT.Encode(payload, ConfigReader.AuthSecretKeyByteArray, JwsAlgorithm.HS256);
         }
     }
 }

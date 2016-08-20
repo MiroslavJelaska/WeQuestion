@@ -58,9 +58,18 @@
 
         function submit() {
             var data = {
-                accessToken: surveyAccessToken
+                accessToken: surveyAccessToken,
+                answers: _.map(vm.survey.questions, function(question) {
+                    return {
+                        questionId: question.id,
+                        selectedOptionId: _.find(question.options, function(option) {
+                            return option.isSelected;
+                        }).id
+                    }
+                })
             }
-            console.log(vm);
+            console.log('vm', vm);
+            console.log('data', data);
 
             $http.post("api/participation/", data).
             then(function(response) {

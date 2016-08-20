@@ -22,7 +22,7 @@
         surveyService.get(surveyId)
         .then(survey => {
             vm.survey = survey;
-            vm.accessUrl = 'http://localhost:16871/q/' + vm.survey.accessToken;
+            vm.accessUrl = 'http://localhost:16871/s/' + vm.survey.accessToken;
         });
 
         function isSuveyOpen() {

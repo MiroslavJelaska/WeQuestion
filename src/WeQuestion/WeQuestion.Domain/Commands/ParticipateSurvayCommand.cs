@@ -17,16 +17,24 @@ namespace WeQuestion.Domain.Commands
 
         public void Execute(dto::Survey.Participation participation)
         {
+            var userRecord = _dbContext.ProvisionalUsers.Find(participation.ProvisionalUserId);
+            if (userRecord == null)
+            {
+                userRecord = new ProvisionalUser();
+                _dbContext.ProvisionalUsers.Add(userRecord);
+            }
+
             var surveyParticipation = new SurveyParticipation()
             {
-                //ProvisionalUser = participation.ProvisionalUser,
+                ProvisionalUser = userRecord,
                 Survey = _dbContext.Surveys.Single(x => x.AccessToken == participation.AccessToken),
-                //UsersAnswers = participation.Answers.Select(a => new UsersAnswer()
-                //{
-                //    Question = _dbContext.Questions.Find(a.QuestionId)
-                //}).ToList()
+                UsersAnswers = participation.Answers.Select(a => new UsersAnswer()
+                {
+                    AnswerOption = _dbContext.AnswerOptions.Find(a.SelectedOptionId)
+                }).ToList()
             };
             _dbContext.SurveyParticipations.Add(surveyParticipation);
+
             _dbContext.SaveChanges();
         }
     }
