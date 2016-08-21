@@ -71,7 +71,8 @@
 
         function close() {
             surveyService.close(vm.surveyId)
-            .then(function() {
+            .then(function () {
+                $state.go('admin.survey.results');
             });
         }
 

@@ -14,7 +14,6 @@
         }
 
         function logout() {
-            console.log(1235)
             authorizationService.logout();
             $state.go('login');
         }
