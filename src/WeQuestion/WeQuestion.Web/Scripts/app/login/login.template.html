@@ -6,6 +6,8 @@
         <button ng-click="vm.action.logout()">Logout</button>
     </div>
     <div ng-hide="vm.authDetails">
-        <button ng-click="vm.action.login('mcagalj@fesb.hr', 'fesb')">Mario Čagalj</button>
+        <input ng-model="vm.email" type="email" placeholder="email" />
+        <input ng-model="vm.password" type="password" placeholder="pass"/>
+        <button ng-click="vm.action.login(vm.email, vm.password)" type="submit">Submit</button>
     </div>
 </div>
