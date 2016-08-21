@@ -1,4 +1,47 @@
 ﻿<div>
-    Broj sudionika: {{vm.result.participantsCount}}
+    <div ng-hide="vm.result">
+        Loading...
+    </div>
 
+    <div ng-show="vm.result">
+        Total participants: {{vm.result.participantsCount}}
+
+        <div class="questions-container qwr">
+            <span ng-if="!vm.result.questionsWithResults || !vm.result.questionsWithResults.length">Nema pitanja</span>
+            <div>
+                <div class="single-question" ng-repeat="qwr in vm.result.questionsWithResults | orderBy: 'index'">
+                    <div class="question-head single-question">
+                        <div class="question-index-container">
+                            <span class="question-index">{{$index + 1}}</span>
+                        </div>
+                        <div class="question-text">
+                            {{qwr.text}}
+                        </div>
+                    </div>
+                    <div class="questionsWithResults-wrapper">
+                        <div class="questionsWithResults-text">
+                            <div class="question-text qwr">{{qwr.correctAnswerOption.text}}</div>
+                            <ul>
+                                <li>
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                     {{qwr.correntAnswersCount/vm.result.participantsCount * 100 | number:2}}% ({{qwr.correntAnswersCount}})
+                                </li>
+                                <li>
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                    {{qwr.wrongAnswerCount/vm.result.participantsCount * 100 | number:2}}% ({{qwr.wrongAnswerCount}})
+                                </li>
+                                <li>
+                                    <i class="fa fa-circle-o" aria-hidden="true"></i>
+                                    {{qwr.leftUnansweredCount/vm.result.participantsCount * 100 | number:2}}% ({{qwr.leftUnansweredCount}})
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="graph" style="width: 150px;">
+                            <canvas id="doughnut" class="chart chart-doughnut" chart-data="qwr.data" chart-labels="vm.labels" chart-colors="vm.colors"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

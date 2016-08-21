@@ -229,6 +229,7 @@
     <Content Include="Scripts\app\participant\participant.controller.js" />
     <Content Include="Scripts\app\participant\participant.state.js" />
     <Content Include="Scripts\app\participant\participant.template.html" />
+    <Content Include="Scripts\libs\angular-chart.min.js" />
     <Content Include="Scripts\libs\angular-ui-tree\angular-ui-tree.css" />
     <Content Include="Scripts\libs\angular-ui-tree\angular-ui-tree.js" />
     <Content Include="Scripts\libs\angular-ui-tree\angular-ui-tree.min.css" />

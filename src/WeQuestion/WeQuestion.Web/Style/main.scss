@@ -237,3 +237,27 @@ body {
 .angular-ui-tree-handle:hover {
     cursor: ns-resize;
 }
+
+
+//// results.template.html
+
+.questionsWithResults-wrapper {
+    
+}
+
+.questionsWithResults-text{
+    display: inline-block;
+}
+
+.graph{
+    display: inline-block;
+}
+
+.qwr.question-text{
+    padding-top: 15px;
+    font-weight: 600;
+}
+
+.qwr.questions-container {
+    margin-top: 15px;
+}
