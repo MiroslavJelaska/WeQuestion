@@ -74,9 +74,7 @@
                 answers: _.map(vm.survey.questions, function(question) {
                     return {
                         questionId: question.id,
-                        selectedOptionId: _.find(question.options, function(option) {
-                            return option.isSelected;
-                        }).id
+                        selectedOptionId: getUserAnswerFromOptions(question.options)
                     }
                 })
             }
@@ -91,6 +89,14 @@
 
                 vm.hasSuccessfulyParticipated = true;
             });
+
+            function getUserAnswerFromOptions(options) {
+                var userAnswer = _.find(options, function(option) {
+                    return option.isSelected;
+                });
+
+                return userAnswer ? userAnswer.id : null;
+            }
         }
     }
 })();

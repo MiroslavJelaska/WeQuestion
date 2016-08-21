@@ -109,7 +109,15 @@ namespace WeQuestion.Data
                         ProvisionalUser = x,
                         UsersAnswers = closedSurveyQuestions.Select(z => new UsersAnswer()
                         {
-                            AnswerOption = z.AnswerOptions.ToList()[Faker.NumberFaker.Number(0, z.AnswerOptions.Count)],
+                            AnswerOption =
+                            (new[]
+                            {
+                                null,
+                                z.AnswerOptions.ToList()[Faker.NumberFaker.Number(0, z.AnswerOptions.Count)],
+                                z.AnswerOptions.ToList()[Faker.NumberFaker.Number(0, z.AnswerOptions.Count)],
+                                z.AnswerOptions.ToList()[Faker.NumberFaker.Number(0, z.AnswerOptions.Count)],
+                                z.AnswerOptions.ToList()[Faker.NumberFaker.Number(0, z.AnswerOptions.Count)],
+                            })[Faker.NumberFaker.Number(0, 5)]
                         }).ToList()
                     });
 

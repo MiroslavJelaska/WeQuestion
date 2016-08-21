@@ -30,9 +30,10 @@ namespace WeQuestion.Domain.Commands
                 Survey = _dbContext.Surveys.Single(x => x.AccessToken == participation.AccessToken),
                 UsersAnswers = participation.Answers.Select(a => new UsersAnswer()
                 {
-                    AnswerOption = _dbContext.AnswerOptions.Find(a.SelectedOptionId)
+                    AnswerOption = a.SelectedOptionId.HasValue ? _dbContext.AnswerOptions.Find(a.SelectedOptionId) : null
                 }).ToList()
             };
+
             _dbContext.SurveyParticipations.Add(surveyParticipation);
 
             _dbContext.SaveChanges();
