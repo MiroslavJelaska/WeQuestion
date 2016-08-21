@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
+using WeQuestion.Domain.Dto.Option;
 using WeQuestion.Domain.Dto.Question;
 using data = WeQuestion.Data.Entities;
 using dto = WeQuestion.Domain.Dto;
@@ -55,11 +57,34 @@ namespace WeQuestion.Domain.Mappers
         {
             public static dto::Survey.Result Map(data::Survey survey)
             {
-                return new dto::Survey.Result()
-                {
+                var result =
+                    from question in survey.Questions
+                    let participantsCount = survey.SurveyParticipations.Count
+                    let correctAnswerOption = question.AnswerOptions.FirstOrDefault(answerOption => answerOption.IsCorrect)
+                    let correntAnswersCount =
+                        correctAnswerOption
+                        .UsersAnswers
+                        .Count
+                    let wrongAnswerCount =
+                        question.AnswerOptions
+                        .Where(answerOption => !answerOption.IsCorrect)
+                        .SelectMany(answerOption => answerOption.UsersAnswers)
+                        .Count()
+                    let leftUnansweredCount = participantsCount - (correntAnswersCount + wrongAnswerCount)
+                    select new dto.Survey.Result.QuestionResult()
+                    {
+                        Id = question.Id,
+                        Text = question.Text,
+                        CorrectAnswerOption = Mappers.OptionMapper.Map(correctAnswerOption),
+                        CorrentAnswersCount = correntAnswersCount,
+                        WrongAnswerCount = wrongAnswerCount,
+                        LeftUnansweredCount = leftUnansweredCount
+                    };
+                
+                return new dto.Survey.Result() {
                     Id = survey.Id,
                     ParticipantsCount = survey.SurveyParticipations.Count,
-                    QuestionsWithResults = new List<DetailsWithResults>()
+                    QuestionsWithResults = result.ToList()
                 };
             }
         }

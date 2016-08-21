@@ -9,16 +9,10 @@
 
         const surveyId = $stateParams.id;
 
-        vm.action = {
-            closed: function () {
-                $state.go('admin.survey');
-            }
-        }
-
         surveyService.getResult(surveyId)
         .then(result => {
             vm.result = result;
-            //vm.accessUrl = 'http://localhost:16871/s/' + vm.survey.accessToken;
+            console.log(result)
         });
     }
 })();

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace WeQuestion.Data.Entities
 {
@@ -12,5 +13,7 @@ namespace WeQuestion.Data.Entities
         public int Index { get; set; }
 
         public bool IsCorrect { get; set; }
+
+        public virtual ICollection<UsersAnswer> UsersAnswers { get; set; }
     }
 }

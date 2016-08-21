@@ -59,8 +59,6 @@
     <Compile Include="Commands\CloseSurvayCommand.cs" />
     <Compile Include="Commands\UpdateSurvayCommand.cs" />
     <Compile Include="Commands\CreateSurvayCommand.cs" />
-    <Compile Include="Dto\Option\DetailsWithResults.cs" />
-    <Compile Include="Dto\Question\DetailsWithResults.cs" />
     <Compile Include="Dto\Results\LongDetails.cs" />
     <Compile Include="Dto\Survey\Result.cs" />
     <Compile Include="Dto\UserAnswer\Details.cs" />
