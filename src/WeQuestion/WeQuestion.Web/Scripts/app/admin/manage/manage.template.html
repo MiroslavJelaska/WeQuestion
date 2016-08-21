@@ -8,12 +8,18 @@
             <span class="survey-title">{{vm.survey.title}}</span>
         </div>
 
-        <div ng-show="vm.check.isSuveyOpen()">
-            Closing on: {{vm.survey.closingTimestamp | date: 'M.d. H:m:s'}}
+        <div ng-show="vm.check.isSuveyOpen()" class="manage-wrap">
+            Closing on: {{vm.survey.closingTimestamp | date: 'M.d. HH:mm:ss'}}
             <br/>
             <closing-countdown closing-time="vm.survey.closingTimestamp" total-time-in-minutes="vm.survey.durationInMinutes" on-closed="vm.action.closed()"></closing-countdown>
             <br/>
-            Access link: <span id="urlWithAccessToken">{{vm.accessUrl}}</span> <button clipboard text="vm.accessUrl">To clipboard</button>
+            Access link:
+            <br/>
+
+            <span id="urlWithAccessToken">
+                    <span>{{vm.accessUrl.origin}}</span>
+                    <span class="urlWithAccessToken accessToken">{{vm.accessUrl.accessToken}}</span>
+                </span> <button clipboard text="vm.accessUrl.origin"><i class="fa fa-clipboard" aria-hidden="true"></i></button>
         </div>
     </div>
 
