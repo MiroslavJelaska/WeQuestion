@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using WeQuestion.Data.Entities;
 
 namespace WeQuestion.Data
@@ -48,6 +49,70 @@ namespace WeQuestion.Data
                     Password = "$2a$12$lU5HHjOkcHvR7BobZDyIKe7uKExeGxMDzZZEEh6YsASw7Bmy/pcDK", //fesb
                     Surveys = new List<Survey>()
                 };
+
+                var closedSurveyQuestions = new List<Question>()
+                {
+                    new Question()
+                    {
+                        Text =
+                            "In password protection, this is a random string of data used to modify a password hash.",
+                        AnswerOptions = new List<AnswerOption>()
+                        {
+                            new AnswerOption() {Text = "sheepdip"},
+                            new AnswerOption() {Text = "salt", IsCorrect = true},
+                            new AnswerOption() {Text = "bypass"},
+                            new AnswerOption() {Text = "dongle"}
+                        },
+                        Index = 0,
+                    },
+                    new Question()
+                    {
+                        Text =
+                            "This is a mode of operation for a block cipher, with the characteristic that each possible block of plaintext has a defined corresponding ciphertext value and vice versa.",
+                        AnswerOptions = new List<AnswerOption>()
+                        {
+                            new AnswerOption() {Text = "footprinting"},
+                            new AnswerOption() {Text = "hash function"},
+                            new AnswerOption() {Text = "watermark"},
+                            new AnswerOption() {Text = "Electronic Code Book", IsCorrect = true}
+                        },
+                        Index = 1
+                    },
+                    new Question()
+                    {
+                        Text =
+                            "This is a trial and error method used to decode encrypted data through exhaustive effort rather than employing intellectual strategies.",
+                        AnswerOptions = new List<AnswerOption>()
+                        {
+                            new AnswerOption() {Text = "chaffing and winnowing "},
+                            new AnswerOption() {Text = "cryptanalysis "},
+                            new AnswerOption() {Text = "serendipity "},
+                            new AnswerOption() {Text = "brute force cracking", IsCorrect = true}
+                        },
+                        Index = 2
+                    }
+                };
+                var closedSurvey = new Survey()
+                {
+                    AccessToken = "WoodSwitch",
+                    State = SurvayState.Published,
+                    DurationInMinutes = 15,
+                    Title = "Test poll #3",
+                    Questions = closedSurveyQuestions
+                };
+
+                var provisionalUsers = Enumerable.Range(0, 50).Select(x => new ProvisionalUser());
+                var userAnswers =
+                    provisionalUsers.Select(x => new SurveyParticipation()
+                    {
+                        Survey = closedSurvey,
+                        Comment = (new [] { null, Faker.TextFaker.Sentence()})[Faker.NumberFaker.Number(0,1)],
+                        ProvisionalUser = x,
+                        UsersAnswers = closedSurveyQuestions.Select(z => new UsersAnswer()
+                        {
+                            AnswerOption = z.AnswerOptions.ToList()[Faker.NumberFaker.Number(0, z.AnswerOptions.Count)],
+                        }).ToList()
+                    });
 
                 new[]
                 {
@@ -102,7 +167,8 @@ namespace WeQuestion.Data
                                     new AnswerOption() {Text = "digital certificate"},
                                     new AnswerOption() {Text = "private key", IsCorrect = true},
                                     new AnswerOption() {Text = "security token"}
-                                }
+                                },
+                                Index = 0
                             },
                             new Question()
                             {
@@ -113,7 +179,8 @@ namespace WeQuestion.Data
                                     new AnswerOption() {Text = "output feedback"},
                                     new AnswerOption() {Text = "Encrypting File System " },
                                     new AnswerOption() {Text = "single signon"}
-                                }
+                                },
+                                Index = 1
                             },
                             new Question()
                             {
@@ -124,7 +191,8 @@ namespace WeQuestion.Data
                                     new AnswerOption() {Text = "certificate authority" },
                                     new AnswerOption() {Text = "Resource Access Control Facility" },
                                     new AnswerOption() {Text = "script kiddy"}
-                                }
+                                },
+                                Index = 2
                             },
                             new Question()
                             {
@@ -135,20 +203,16 @@ namespace WeQuestion.Data
                                     new AnswerOption() {Text = "OCSP" },
                                     new AnswerOption() {Text = "Secure HTTP" },
                                     new AnswerOption() {Text = "Pretty Good Privacy", IsCorrect = true}
-                                }
+                                },
+                                Index = 3
                             }
                         }
                     },
-                    new Survey()
-                    {
-                        AccessToken = "WoodSwitch",
-                        State = SurvayState.Published,
-                        DurationInMinutes = 15,
-                        Title = "Test poll #3"
-                    }
+                    closedSurvey
                 }.ToList().ForEach(newPoll => user.Surveys.Add(newPoll));
 
                 context.Users.Add(user);
+                userAnswers.ToList().ForEach(ua => context.SurveyParticipations.Add(ua));
 
                 context.SaveChanges();
             }
