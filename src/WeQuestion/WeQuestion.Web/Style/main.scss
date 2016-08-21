@@ -270,3 +270,31 @@ body {
     font-size: 30px;
     font-weight: 600;
 }
+
+.commentArea {
+    .title{
+        font-size: 16px;
+        font-weight: 500;
+    }
+    
+    .option-index-container{
+        height:22px;
+        width: 22px;
+        display: inline-block;
+        background-color: $color-light-blue;
+        border-radius: 50%;
+        color:white;
+        text-align:center;
+        .option-index{
+            line-height: 22px;
+        }
+        float: left;
+        margin-right: 8px;
+    }
+    ul {
+        padding-left: 10px;
+    }
+    .comment{
+        margin-bottom: 20px;
+    }
+}

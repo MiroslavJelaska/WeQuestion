@@ -42,6 +42,8 @@
                     </ol>
                 </div>
 
+                <textarea ng-model="vm.survey.comment" placeholder="Want to give anonymous feedback? Write it down."></textarea>
+
                 <button type="submit" ng-click="vm.action.submit()" class="button button-green">Submit</button>
                 <span ng-if="vm.saveInProgress">Saving...</span>
             </form>

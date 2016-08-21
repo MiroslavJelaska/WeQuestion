@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using WeQuestion.Data.Entities;
 using dto = WeQuestion.Domain.Dto;
 namespace WeQuestion.Domain.Dto.Survey
 {
@@ -8,7 +7,7 @@ namespace WeQuestion.Domain.Dto.Survey
     {
         public string AccessToken { get; set; }
         public Guid ProvisionalUserId { get; set; }
-
         public IReadOnlyCollection<dto::UserAnswer.Details> Answers { get; set; }
+        public string Comment { get; set; }
     }
 }

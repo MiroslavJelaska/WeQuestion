@@ -11,6 +11,8 @@ namespace WeQuestion.Domain.Dto.Survey
 
         public IReadOnlyCollection<QuestionResult> QuestionsWithResults { get; set; }
 
+        public IReadOnlyCollection<string> Comments { get; set; } 
+
         public class QuestionResult
         {
             public int Id { get; set; }

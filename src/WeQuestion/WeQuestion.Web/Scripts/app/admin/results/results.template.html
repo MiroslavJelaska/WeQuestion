@@ -24,7 +24,7 @@
                             <ul>
                                 <li>
                                     <i class="fa fa-check" aria-hidden="true"></i>
-                                     {{qwr.correntAnswersCount/vm.result.participantsCount * 100 | number:2}}% ({{qwr.correntAnswersCount}})
+                                    {{qwr.correntAnswersCount/vm.result.participantsCount * 100 | number:2}}% ({{qwr.correntAnswersCount}})
                                 </li>
                                 <li>
                                     <i class="fa fa-times" aria-hidden="true"></i>
@@ -41,6 +41,18 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="commentArea">
+                <span class="title">Comments</span>
+                <br/>
+                <span ng-show="!vm.result.comments || vm.result.comments.length === 0">There are no comments</span>
+
+                <ul>
+                    <li class="comment" ng-repeat="comment in vm.result.comments track by $index">
+                        <div class="option-index-container"><span class="option-index">{{$index + 1}}</span></div>
+                        <div>{{comment}}</div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

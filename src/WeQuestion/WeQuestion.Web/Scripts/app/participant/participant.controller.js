@@ -76,7 +76,8 @@
                         questionId: question.id,
                         selectedOptionId: getUserAnswerFromOptions(question.options)
                     }
-                })
+                }),
+                comment: vm.survey.comment
             }
             console.log('vm', vm);
             console.log('data', data);

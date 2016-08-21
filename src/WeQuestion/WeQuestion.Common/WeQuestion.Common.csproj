@@ -116,6 +116,7 @@
     <Compile Include="Auth\JwtAdapter.cs" />
     <Compile Include="Auth\JwtUtility.cs" />
     <Compile Include="Auth\UserRoleType.cs" />
+    <Compile Include="Check.cs" />
     <Compile Include="ConfigReader.cs" />
     <Compile Include="PasswordHashing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

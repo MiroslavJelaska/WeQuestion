@@ -31,7 +31,8 @@ namespace WeQuestion.Domain.Commands
                 UsersAnswers = participation.Answers.Select(a => new UsersAnswer()
                 {
                     AnswerOption = a.SelectedOptionId.HasValue ? _dbContext.AnswerOptions.Find(a.SelectedOptionId) : null
-                }).ToList()
+                }).ToList(),
+                Comment = participation.Comment
             };
 
             _dbContext.SurveyParticipations.Add(surveyParticipation);

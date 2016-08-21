@@ -86,6 +86,10 @@
     <Compile Include="Services\AccessTokenGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WeQuestion.Common\WeQuestion.Common.csproj">
+      <Project>{7B01D208-8EFD-42E9-9C60-891F677E1842}</Project>
+      <Name>WeQuestion.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WeQuestion.Data\WeQuestion.Data.csproj">
       <Project>{862cea4c-39f3-4ece-a95f-a3683310dacb}</Project>
       <Name>WeQuestion.Data</Name>

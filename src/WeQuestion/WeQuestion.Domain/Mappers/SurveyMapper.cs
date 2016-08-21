@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net.Sockets;
-using WeQuestion.Domain.Dto.Option;
-using WeQuestion.Domain.Dto.Question;
+using WeQuestion.Common;
 using data = WeQuestion.Data.Entities;
 using dto = WeQuestion.Domain.Dto;
 
@@ -80,11 +77,18 @@ namespace WeQuestion.Domain.Mappers
                         WrongAnswerCount = wrongAnswerCount,
                         LeftUnansweredCount = leftUnansweredCount
                     };
-                
+
+                var comments =
+                    survey.SurveyParticipations
+                    .Select(x => x.Comment)
+                    .Where(x => !Check.IsNullOrEmptyOrWhitespace(x))
+                    .ToList();
+
                 return new dto.Survey.Result() {
                     Id = survey.Id,
                     ParticipantsCount = survey.SurveyParticipations.Count,
-                    QuestionsWithResults = result.ToList()
+                    QuestionsWithResults = result.ToList(),
+                    Comments = comments
                 };
             }
         }

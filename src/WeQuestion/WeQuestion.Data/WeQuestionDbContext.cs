@@ -105,7 +105,7 @@ namespace WeQuestion.Data
                     provisionalUsers.Select(x => new SurveyParticipation()
                     {
                         Survey = closedSurvey,
-                        Comment = (new [] { null, Faker.TextFaker.Sentence()})[Faker.NumberFaker.Number(0,1)],
+                        Comment = (new [] { null, Faker.TextFaker.Sentence()})[Faker.NumberFaker.Number(0,2)],
                         ProvisionalUser = x,
                         UsersAnswers = closedSurveyQuestions.Select(z => new UsersAnswer()
                         {

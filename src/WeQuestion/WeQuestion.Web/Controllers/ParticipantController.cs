@@ -34,6 +34,7 @@ namespace WeQuestion.Web.Controllers
         {
             participation.ProvisionalUserId = AuthDetails.Id;
             _participateSurveyCommand.Execute(participation);
+
             return Ok();
         }
     }
