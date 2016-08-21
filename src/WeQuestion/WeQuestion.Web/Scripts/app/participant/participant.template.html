@@ -1,9 +1,14 @@
 ﻿<div>
-    <div ng-show="vm.isLoading">
+    <div ng-show="vm.isLoading && !vm.hasAlreadyParticipated">
         Loading...
     </div>
-
-    <div ng-show="!vm.isLoading">
+    <div ng-show="vm.hasSuccessfulyParticipated">
+        Successfuly submited
+    </div>
+    <div ng-show="vm.hasAlreadyParticipated">
+        You have already participated.
+    </div>
+    <div ng-show="!vm.isLoading && !vm.hasSuccessfulyParticipated && !vm.hasAlreadyParticipate">
         <div ng-hide="vm.check.isSuveyOpen()">
             Questionary closed
         </div>

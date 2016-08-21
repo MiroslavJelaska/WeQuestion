@@ -7,26 +7,38 @@
     function ParticipantController($state, $http, $stateParams, surveyService, authorizationService) {
         var vm = this;
         vm.isLoading = true;
+        vm.hasAlreadyParticipated = false;
         const surveyAccessToken = $stateParams.id;
         vm.check = {
             isSuveyOpen: isSuveyOpen
-        }
+        };
+
         vm.action = {
             uncheckOtherOptions: uncheckOtherOptions,
             submit: submit
-        }
-        
-        var authDetails = authorizationService.getAuthDetails();
+        };
 
-        if (!authDetails) {
-            authorizationService.loginAnonymously()
-            .then(function() {
-                console.log('loginAnonymously', authorizationService.getAuthDetails());
-                loadSurvey();
+        (function () {
+            var participatedSurveys = JSON.parse(localStorage.getItem('participatedSurveys'));
+            var hasAlreadyParticipated = !!_.find(participatedSurveys, function(participatedAccessToken) {
+                return participatedAccessToken === surveyAccessToken;
             });
-        } else {
-            loadSurvey();
-        }
+
+            if (hasAlreadyParticipated) {
+                vm.hasAlreadyParticipated = true;
+                return;
+            }
+
+            var authDetails = authorizationService.getAuthDetails();
+            if (!authDetails) {
+                authorizationService.loginAnonymously()
+                .then(function() {
+                    loadSurvey();
+                });
+            } else {
+                loadSurvey();
+            }
+        })();
 
         function loadSurvey() {
             $http.get('api/participation/' + surveyAccessToken)
@@ -72,8 +84,12 @@
             console.log('data', data);
 
             $http.post("api/participation/", data).
-            then(function(response) {
-                console.log(response);
+            then(function (response) {
+                var participatedSurveys = JSON.parse(localStorage.getItem('participatedSurveys')) || [];
+                participatedSurveys.push(surveyAccessToken);
+                localStorage.setItem('participatedSurveys', JSON.stringify(participatedSurveys));
+
+                vm.hasSuccessfulyParticipated = true;
             });
         }
     }
