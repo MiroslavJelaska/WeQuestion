@@ -189,6 +189,9 @@
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
     <Content Include="Scripts\app\admin\common\statePanel-header.controller.js" />
+    <Content Include="Scripts\app\admin\results\results.controller.js" />
+    <Content Include="Scripts\app\admin\results\results.state.js" />
+    <Content Include="Scripts\app\admin\results\results.template.html" />
     <Content Include="Scripts\app\common\constants\roleType.js" />
     <Content Include="Scripts\app\login\login.controller.js" />
     <Content Include="Scripts\app\login\login.state.js" />

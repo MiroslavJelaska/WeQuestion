@@ -16,6 +16,10 @@
         <a> Manage </a>
         <div class="active-label" ui-sref-active="active" ng-if="vm.stateName === 'admin.survey.manage'"></div>
     </div>
+    <div class="menu-option" ui-sref="admin.survey.results" ng-show="vm.currentSurveyState === vm.surveyState.Closed">
+        <a> Results </a>
+        <div class="active-label" ui-sref-active="active" ng-if="vm.stateName === 'admin.survey.results'"></div>
+    </div>
 </div>
 <div class="actions">
     <button class="button button-green" ng-click="vm.action.publish()" ng-show="vm.currentSurveyState === vm.surveyState.Provisional">Publish</button>
