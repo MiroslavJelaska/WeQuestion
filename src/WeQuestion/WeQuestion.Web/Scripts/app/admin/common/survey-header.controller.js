@@ -32,23 +32,41 @@
         }
 
         function publish() {
-            var dialog = ngDialog.open({
-                template: '/Scripts/app/admin/popups/publish.template.html',
-                className: 'ngdialog-publish',
-                scope: $scope,
-                disableAnimation: true
-            });
+            surveyService.get(vm.surveyId).then(function (surveyRecord) {
+                var doAllQuestionsHaveOneAnswerOptionMarkedAsCorret =
+                    _.every(surveyRecord.questions, function(question) {
+                        return _.some(question.options, function(option) {
+                            return option.isCorrect;
+                        });
+                    });
+                
+                console.log(doAllQuestionsHaveOneAnswerOptionMarkedAsCorret);
+                if (!doAllQuestionsHaveOneAnswerOptionMarkedAsCorret) {
+                    ngDialog.open({
+                        template: '/Scripts/app/admin/popups/cannotPublish.template.html',
+                        className: 'ngdialog-cannotPublish',
+                        disableAnimation: true
+                    });
+                } else {
+                    var dialog = ngDialog.open({
+                        template: '/Scripts/app/admin/popups/publish.template.html',
+                        className: 'ngdialog-publish',
+                        scope: $scope,
+                        disableAnimation: true
+                    });
 
-            dialog.closePromise.then(function (data) {
-                if (!data.value) return;
-                surveyService.open({
-                    id: vm.surveyId,
-                    durationInMinutes: data.value
-                })
-                .then(function(survey) {
-                    fetchSurveyData();
-                    $state.go('admin.survey.manage');
-                });
+                    dialog.closePromise.then(function(data) {
+                        if (!data.value) return;
+                        surveyService.open({
+                                id: vm.surveyId,
+                                durationInMinutes: data.value
+                            })
+                            .then(function(survey) {
+                                fetchSurveyData();
+                                $state.go('admin.survey.manage');
+                            });
+                    });
+                }
             });
         }
 

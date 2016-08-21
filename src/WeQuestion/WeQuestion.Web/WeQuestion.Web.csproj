@@ -189,6 +189,7 @@
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
     <Content Include="Scripts\app\admin\common\statePanel-header.controller.js" />
+    <Content Include="Scripts\app\admin\popups\cannotPublish.template.html" />
     <Content Include="Scripts\app\admin\results\results.controller.js" />
     <Content Include="Scripts\app\admin\results\results.state.js" />
     <Content Include="Scripts\app\admin\results\results.template.html" />
