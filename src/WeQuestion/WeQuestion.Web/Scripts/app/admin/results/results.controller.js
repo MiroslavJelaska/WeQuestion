@@ -15,10 +15,10 @@
             }
         }
 
-        surveyService.get(surveyId)
-        .then(survey => {
-            vm.survey = survey;
-            vm.accessUrl = 'http://localhost:16871/s/' + vm.survey.accessToken;
+        surveyService.getResult(surveyId)
+        .then(result => {
+            vm.result = result;
+            //vm.accessUrl = 'http://localhost:16871/s/' + vm.survey.accessToken;
         });
     }
 })();

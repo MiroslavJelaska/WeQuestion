@@ -23,6 +23,12 @@ namespace WeQuestion.Data
         public IDbSet<Question> Questions { get; set; }
         public IDbSet<AnswerOption> AnswerOptions { get; set; }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Survey>()
+                .HasMany(survey => survey.SurveyParticipations)
+                .WithRequired(surveyParticipation => surveyParticipation.Survey);
+        }
 
         public class DevelopmentDatabaseInitializer : DropCreateDatabaseAlways<WeQuestionDbContext>
         {

@@ -19,5 +19,7 @@ namespace WeQuestion.Data.Entities
         public string AccessToken { get; set; }
 
         public virtual ICollection<Question> Questions { get; set; }
+
+        public virtual ICollection<SurveyParticipation> SurveyParticipations { get; set; }
     }
 }

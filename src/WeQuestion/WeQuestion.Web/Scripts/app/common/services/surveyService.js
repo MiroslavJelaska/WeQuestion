@@ -26,6 +26,12 @@
             .then(result => result.data);
         }
 
+        function getResult(id) {
+            return $http
+            .get(baseUri + '/' + id + '/result')
+            .then(result => result.data);
+        }
+
         function create(newSurvey) {
             return $http
             .post(baseUri, newSurvey)
@@ -52,7 +58,8 @@
 
         return {
             getAll: getAll,
-            get:    get,
+            get: get,
+            getResult: getResult,
             create: create,
             update: update,
             open:   open,

@@ -59,6 +59,10 @@
     <Compile Include="Commands\CloseSurvayCommand.cs" />
     <Compile Include="Commands\UpdateSurvayCommand.cs" />
     <Compile Include="Commands\CreateSurvayCommand.cs" />
+    <Compile Include="Dto\Option\DetailsWithResults.cs" />
+    <Compile Include="Dto\Question\DetailsWithResults.cs" />
+    <Compile Include="Dto\Results\LongDetails.cs" />
+    <Compile Include="Dto\Survey\Result.cs" />
     <Compile Include="Dto\UserAnswer\Details.cs" />
     <Compile Include="Dto\Option\Create.cs" />
     <Compile Include="Dto\Option\Update.cs" />
@@ -78,6 +82,7 @@
     <Compile Include="Mappers\QuestionMapper.cs" />
     <Compile Include="Mappers\SurveyMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\GetSurveyResultQuery.cs" />
     <Compile Include="Queries\GetSurveyQuery.cs" />
     <Compile Include="Queries\GetAllSurveysQuery.cs" />
     <Compile Include="Services\AccessTokenGenerator.cs" />

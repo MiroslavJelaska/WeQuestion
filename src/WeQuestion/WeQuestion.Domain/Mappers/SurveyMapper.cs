@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using WeQuestion.Domain.Dto.Question;
 using data = WeQuestion.Data.Entities;
 using dto = WeQuestion.Domain.Dto;
 
@@ -47,6 +49,19 @@ namespace WeQuestion.Domain.Mappers
             if (survey.ClosingTimestamp.HasValue && DateTimeOffset.UtcNow < survey.ClosingTimestamp.Value)
                 return dto.SurvayState.Open;
             return dto.SurvayState.Closed;
+        }
+
+        public static class Result
+        {
+            public static dto::Survey.Result Map(data::Survey survey)
+            {
+                return new dto::Survey.Result()
+                {
+                    Id = survey.Id,
+                    ParticipantsCount = survey.SurveyParticipations.Count,
+                    QuestionsWithResults = new List<DetailsWithResults>()
+                };
+            }
         }
     }
 }
