@@ -39,8 +39,7 @@
                             return option.isCorrect;
                         });
                     });
-                
-                console.log(doAllQuestionsHaveOneAnswerOptionMarkedAsCorret);
+
                 if (!doAllQuestionsHaveOneAnswerOptionMarkedAsCorret) {
                     ngDialog.open({
                         template: '/Scripts/app/admin/popups/cannotPublish.template.html',
