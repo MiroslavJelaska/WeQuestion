@@ -43,6 +43,9 @@ $divider-color: #e1e1e1;
     background-color: $color-light-blue;
     color: white;
 }
+.button-submit{
+    display: block;
+}
 
 body {
     font-size: 14px;
@@ -163,63 +166,71 @@ body {
 
     .survey-title{
         font-family: 'Open Sans', sans-serif;
-        font-weight:100;
+        font-weight:600;
         font-size:2em;
     }
 
     * li { list-style: none; }
     * ol { padding: 0;}
-    
-    .questions-container {
-        .question-head {
-            min-height: 35px;
-            position: relative;
-            background-color: #f8f6f6;
-            overflow:auto;
-        }
-        .question-index-container{
-            background-color: $color-green;
-            width:25px;
-            height:100%;
-            min-height: 35px;
-            position: absolute;
-            top:0;
-            left:0;
-            float:left;
-            text-align: center;
-            .question-index{
-                color: white;
-                line-height: 35px;
+}
+.question-head
+{
+    min-height: 35px;
+    position: relative;
+    background-color: #f8f6f6;
+    overflow:auto;
+}
+.question-index-container
+{
+    background-color: $color-green;
+    width:25px;
+    height:100%;
+    min-height: 35px;
+    position: absolute;
+    top:0;
+    left:0;
+    float:left;
+    text-align: center;
+    .question-index{
+        color: white;
+        line-height: 35px;
+    }
+}
+.question-text{
+    margin: 5px 40px;
+}
+
+.options{
+    margin-left: 75px;
+
+    .option{
+                
+        margin:10px;
+        .option-index-container{
+            height:22px;
+            width: 22px;
+            display: inline-block;
+            background-color: $color-light-blue;
+            border-radius: 50%;
+            color:white;
+            text-align:center;
+            .option-index{
+                line-height: 22px;
             }
         }
         .question-text{
-            margin: 5px 40px;
-        }
-
-        .options{
-            margin-left: 75px;
-
-            .option{
-                
-                margin:10px;
-                .option-index-container{
-                    height:22px;
-                    width: 22px;
-                    display: inline-block;
-                    background-color: $color-light-blue;
-                    border-radius: 50%;
-                    color:white;
-                    text-align:center;
-                    .option-index{
-                        line-height: 22px;
-                    }
-                }
-                .question-text{
-                    display: inline;
-                }
-            }
+            display: inline;
         }
     }
+}
+@media (max-width: 600px) {
+  .options{
+     margin-left: 0px;
+  }
+  .survey-title{
+    margin-bottom: 0px;
+    font-size: 24px;
+  }
 }
 
 

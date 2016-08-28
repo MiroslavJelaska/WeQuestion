@@ -14,14 +14,14 @@
         </div>
         <div ng-show="vm.check.isSuveyOpen()">
             <form ng-show="vm.survey">
-                {{vm.survey.title}}
+                <h2 class="survey-title">{{vm.survey.title}}</h2>
 
                 <br />
 
                 <div>
                     <ol>
                         <li ng-repeat="question in vm.survey.questions">
-                            <div class="question">
+                            <div class="question-head">
                                 <div class="question-index-container">
                                     <span class="question-index">{{$index + 1}}</span>
                                 </div>
@@ -32,7 +32,9 @@
                             <ol class="options">
                                 <li ng-repeat="option in question.options" class="option">
                                     <div>
-                                        <span class="option-index">{{$index | numberToLetter}}</span>
+                                        <div class="option-index-container">
+                                            <span class="option-index">{{$index | numberToLetter}}</span>
+                                        </div>
                                         {{option.text}}
                                         <input type="radio" ng-model="option.isSelected" ng-value="true" ng-click="vm.action.uncheckOtherOptions(option)">
                                     </div>
@@ -44,7 +46,7 @@
 
                 <textarea ng-model="vm.survey.comment" placeholder="Want to give anonymous feedback? Write it down."></textarea>
 
-                <button type="submit" ng-click="vm.action.submit()" class="button button-green">Submit</button>
+                <button type="submit" ng-click="vm.action.submit()" class="button button-green button-submit">Submit</button>
                 <span ng-if="vm.saveInProgress">Saving...</span>
             </form>
         </div>
