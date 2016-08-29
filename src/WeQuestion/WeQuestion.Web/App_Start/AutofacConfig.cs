@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -54,8 +55,7 @@ namespace WeQuestion.Web.App_Start
         {
             builder.RegisterType<WeQuestionDbContext>()
                 .AsSelf()
-                .WithParameter("connectionString",
-                    @"Data Source=(LocalDB)\MSSQLLocalDB; Initial Catalog=WeQuestion; Integrated Security = True; MultipleActiveResultSets=True")
+                .WithParameter("connectionString", ConfigurationManager.ConnectionStrings["WeQuestionDb"].ConnectionString)
                 .InstancePerRequest();
         }
     }
